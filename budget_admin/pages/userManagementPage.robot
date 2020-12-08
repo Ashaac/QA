@@ -21,19 +21,13 @@ ${click_branch}                     //mat-option[@id='branch_1']
 ${add_user_click_button_xpath}      //button[@id='add_user_btn']
 ${notify_xpath}                     //nz-notification/div/div/div/div/div[1]
 ${close_button}                     //button[@id='close_btn']
+
 *** Keywords ***
-
-Verify User Add
-    Toggle User Management
-    Click Users
-    Refresh User Button
-    Click Add User
-    run keyword and continue on failure    Click User Add Button
-
-Toggle User Management
+Click on User Management
     wait until element is visible   ${toggle_usermanagement_xpath}
     click element    ${toggle_usermanagement_xpath}
     sleep    3s
+
 
 Click Users
 # --  click users
