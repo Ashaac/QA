@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20201208 19:57:14.774" rpa="false">
+<suite id="s1" name="T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget">
+<suite id="s1-s1" name="T0 verify admin" source="E:\QA automation\QA\budget_admin\test_suites\T0_verify_admin.robot">
+<kw name="Open Budget Application" library="loginPage" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<arg>add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors") error</arg>
+</arguments>
+<msg timestamp="20201208 19:57:14.971" level="INFO">Opening browser 'Chrome' to base url 'https://10.13.189.8:8443/cas/login?service=https%3A%2F%2F10.13.189.8%3A8443%2Fbudget%2Flogin%2Fcas'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201208 19:58:00.933" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201208 19:58:00.557" endtime="20201208 19:58:00.933"></status>
+</kw>
+<msg timestamp="20201208 19:58:00.952" level="FAIL">WebDriverException: Message: unknown error: net::ERR_CONNECTION_TIMED_OUT
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 19:57:14.971" endtime="20201208 19:58:00.952"></status>
+</kw>
+<status status="FAIL" starttime="20201208 19:57:14.971" endtime="20201208 19:58:00.953"></status>
+</kw>
+<test id="s1-s1-t1" name="Verify that login page works properly and is authenticated">
+<status status="FAIL" starttime="20201208 19:58:00.953" endtime="20201208 19:58:00.957" critical="yes">Parent suite setup failed:
+WebDriverException: Message: unknown error: net::ERR_CONNECTION_TIMED_OUT
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<doc>this suite verifies admin pge.</doc>
+<status status="FAIL" starttime="20201208 19:57:14.799" endtime="20201208 19:58:00.960">Suite setup failed:
+WebDriverException: Message: unknown error: net::ERR_CONNECTION_TIMED_OUT
+  (Session info: chrome=87.0.4280.88)
+</status>
+</suite>
+<suite id="s1-s2" name="T1 user management" source="E:\QA automation\QA\budget_admin\test_suites\T1_user_management.robot">
+<test id="s1-s2-t1" name="Verify User Add">
+<kw name="Click on User Management" library="userManagementPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${toggle_usermanagement_xpath}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201208 19:58:26.853" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 19:58:14.695" endtime="20201208 19:58:26.853"></status>
+</kw>
+<msg timestamp="20201208 19:58:26.853" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20201208 19:58:26.859" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 19:58:00.986" endtime="20201208 19:58:26.859"></status>
+</kw>
+<status status="FAIL" starttime="20201208 19:58:00.985" endtime="20201208 19:58:26.859"></status>
+</kw>
+<status status="FAIL" starttime="20201208 19:58:00.984" endtime="20201208 19:58:26.860" critical="yes">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<doc>this suite verifies User Management page.</doc>
+<status status="FAIL" starttime="20201208 19:58:00.966" endtime="20201208 19:58:26.866"></status>
+</suite>
+<suite id="s1-s3" name="T1 verify capex prebudget" source="E:\QA automation\QA\budget_admin\test_suites\T1_verify_capex_prebudget.robot">
+<test id="s1-s3-t1" name="Verify Capex Prebudget">
+<kw name="Toggle Prebudget" library="capexPrebudget">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//li[@id="${menu_name_xpath}"]//span</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201208 19:58:51.381" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 19:58:39.128" endtime="20201208 19:58:51.381"></status>
+</kw>
+<msg timestamp="20201208 19:58:51.381" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20201208 19:58:51.388" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 19:58:26.922" endtime="20201208 19:58:51.388"></status>
+</kw>
+<status status="FAIL" starttime="20201208 19:58:26.921" endtime="20201208 19:58:51.388"></status>
+</kw>
+<status status="FAIL" starttime="20201208 19:58:26.920" endtime="20201208 19:58:51.394" critical="yes">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<doc>this suite verifies Capex page.</doc>
+<status status="FAIL" starttime="20201208 19:58:26.874" endtime="20201208 19:58:51.399"></status>
+</suite>
+<suite id="s1-s4" name="T2 verify hr prebudget" source="E:\QA automation\QA\budget_admin\test_suites\T2_verify_hr_prebudget.robot">
+<test id="s1-s4-t1" name="Verify Hr Prebudget">
+<kw name="Open hr Prebudget" library="hrPrebudget">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_4']</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201208 19:59:15.821" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 19:59:03.632" endtime="20201208 19:59:15.821"></status>
+</kw>
+<msg timestamp="20201208 19:59:15.821" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20201208 19:59:15.823" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 19:58:51.446" endtime="20201208 19:59:15.823"></status>
+</kw>
+<status status="FAIL" starttime="20201208 19:58:51.445" endtime="20201208 19:59:15.823"></status>
+</kw>
+<status status="FAIL" starttime="20201208 19:58:51.445" endtime="20201208 19:59:15.824" critical="yes">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<doc>this suite verifies hr page.</doc>
+<status status="FAIL" starttime="20201208 19:58:51.428" endtime="20201208 19:59:15.826"></status>
+</suite>
+<suite id="s1-s5" name="T3 verify activity prebudget" source="E:\QA automation\QA\budget_admin\test_suites\T3_verify_activity_prebudget.robot">
+<test id="s1-s5-t1" name="Verify Activity Prebudget">
+<kw name="Open Activity Prebudget" library="activityPrebudget">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_5']</arg>
+<arg>timeout=10s</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201208 19:59:40.209" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 19:59:28.040" endtime="20201208 19:59:40.210"></status>
+</kw>
+<msg timestamp="20201208 19:59:40.210" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20201208 19:59:40.218" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 19:59:15.840" endtime="20201208 19:59:40.218"></status>
+</kw>
+<status status="FAIL" starttime="20201208 19:59:15.839" endtime="20201208 19:59:40.219"></status>
+</kw>
+<status status="FAIL" starttime="20201208 19:59:15.838" endtime="20201208 19:59:40.220" critical="yes">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<doc>this suite verifies Capex page.</doc>
+<status status="FAIL" starttime="20201208 19:59:15.829" endtime="20201208 19:59:40.225"></status>
+</suite>
+<suite id="s1-s6" name="T4 verify bs prebudget" source="E:\QA automation\QA\budget_admin\test_suites\T4_verify_bs_prebudget.robot">
+<test id="s1-s6-t1" name="Verify Activity Prebudget">
+<kw name="Open Balance Sheet Prebudget" library="balanceSheetPrebudget">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_1']</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201208 20:00:04.617" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 19:59:52.439" endtime="20201208 20:00:04.618"></status>
+</kw>
+<msg timestamp="20201208 20:00:04.618" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20201208 20:00:04.622" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 19:59:40.259" endtime="20201208 20:00:04.622"></status>
+</kw>
+<status status="FAIL" starttime="20201208 19:59:40.258" endtime="20201208 20:00:04.623"></status>
+</kw>
+<status status="FAIL" starttime="20201208 19:59:40.258" endtime="20201208 20:00:04.624" critical="yes">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<doc>this suite verifies Capex page.</doc>
+<status status="FAIL" starttime="20201208 19:59:40.234" endtime="20201208 20:00:04.632"></status>
+</suite>
+<suite id="s1-s7" name="T5 verify profitloss prebudget" source="E:\QA automation\QA\budget_admin\test_suites\T5_verify_profitloss_prebudget.robot">
+<test id="s1-s7-t1" name="Verify Activity Prebudget">
+<kw name="Open Profit Loss Prebudget" library="profitLossPrebudget">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_2']</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201208 20:00:29.024" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 20:00:16.849" endtime="20201208 20:00:29.025"></status>
+</kw>
+<msg timestamp="20201208 20:00:29.025" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20201208 20:00:29.030" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20201208 20:00:04.682" endtime="20201208 20:00:29.030"></status>
+</kw>
+<status status="FAIL" starttime="20201208 20:00:04.681" endtime="20201208 20:00:29.031"></status>
+</kw>
+<status status="FAIL" starttime="20201208 20:00:04.679" endtime="20201208 20:00:29.032" critical="yes">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<doc>this suite verifies Capex page.</doc>
+<status status="FAIL" starttime="20201208 20:00:04.640" endtime="20201208 20:00:29.037"></status>
+</suite>
+<status status="FAIL" starttime="20201208 19:57:14.775" endtime="20201208 20:00:29.049"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="7">Critical Tests</stat>
+<stat pass="0" fail="7">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="7" id="s1" name="T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget</stat>
+<stat pass="0" fail="1" id="s1-s1" name="T0 verify admin">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget.T0 verify admin</stat>
+<stat pass="0" fail="1" id="s1-s2" name="T1 user management">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget.T1 user management</stat>
+<stat pass="0" fail="1" id="s1-s3" name="T1 verify capex prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget.T1 verify capex prebudget</stat>
+<stat pass="0" fail="1" id="s1-s4" name="T2 verify hr prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget.T2 verify hr prebudget</stat>
+<stat pass="0" fail="1" id="s1-s5" name="T3 verify activity prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget.T3 verify activity prebudget</stat>
+<stat pass="0" fail="1" id="s1-s6" name="T4 verify bs prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget.T4 verify bs prebudget</stat>
+<stat pass="0" fail="1" id="s1-s7" name="T5 verify profitloss prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget.T5 verify profitloss prebudget</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20201208 19:58:26.853" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20201208 19:58:51.381" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20201208 19:59:15.821" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20201208 19:59:40.210" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20201208 20:00:04.618" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20201208 20:00:29.025" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=87.0.4280.88)
+</msg>
+</errors>
+</robot>
