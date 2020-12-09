@@ -28,7 +28,7 @@ pip install -r requirements.txt
 * download drivers (chrome) and set environment variable. Follow the steps provided in the link.
     * [chrome driver setup steps](https://zwbetz.com/download-chromedriver-binary-and-add-to-your-path-for-automated-functional-testing/)
  and Pycharm IDE. You can follow [installation pycharm ide steps](https://www.guru99.com/how-to-install-python.html).
-* Also see Requirement present in [requirement.txt](requirement.txt) file 
+* Also see Requirement present in [requirement.txt](budget_admin\requirement.txt) file 
 ## Run project <a name="run project"></a> 
 To run the test suites, Navigate to `Budget Application Login` and run the below command as mentioned:
 
