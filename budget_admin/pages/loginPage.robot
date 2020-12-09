@@ -5,9 +5,10 @@ Library     SeleniumLibrary
 
 ${invalid_username}     ashd
 ${invalid_password}     adfbfj
-${page_logo}    //body/main[1]/a[1]/span[1]
+${page_logo}            //body/main[1]/a[1]/span[1]
 
-${url}    https://10.13.189.8:8443/cas/login?service=https%3A%2F%2F10.13.189.8%3A8443%2Fbudget%2Flogin%2Fcas
+${url}                  https://10.13.189.56:8443/cas/login?service=https%3A%2F%2F10.13.189.56%3A8443%2Fbudget%2Flogin%2Fcas
+#${url}                 https://10.13.189.8:8443/cas/login?service=https%3A%2F%2F10.13.189.8%3A8443%2Fbudget%2Flogin%2Fcas
 
 
 
@@ -17,8 +18,8 @@ Enter Username
     wait until element is visible    id=username
     input text      id=username     ${username}
 
-Logo
-   element should be visible    ${page_logo}     message= Extensodata Logo is visible
+Title
+#   element should be visible    ${page_logo}     message= Extensodata Logo is visible
    title should be    Login - CAS – Central Authentication Service
 
 Enter Password
@@ -59,6 +60,6 @@ Verify Invalid Login
 Verify Login Page is successful
     Enter Username    admin
     Enter Password    admin123
-    run keyword and continue on failure    Logo
+    run keyword and continue on failure    Title
     Click Submit
 #    run keyword and continue on failure    Verify Invalid Login

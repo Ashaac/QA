@@ -1,15 +1,17 @@
 *** Settings ***
 Documentation    this suite verifies Capex page.
+
 Library     SeleniumLibrary
 Resource    ../pages/capexPrebudget.robot
 Resource    ../pages/templateButtonPage.robot
+Resource    ../common/navigateSidebar.robot
 
 *** Variables ***
 ${rule}     fixedAsset
+
 *** Test Cases ***
 
 Verify Capex Prebudget
-
     Toggle Prebudget
     Open Capex Prebudget Sidebar
     Download Worksheet Template
@@ -18,15 +20,16 @@ Verify Capex Prebudget
     Upload worksheet difference tab
     Upload submit to database
     Refresh Button
-    Monthly tab    3
-    Yearly tab     3
     Capex unit price prebudget
     Save Button
     Yes button
 ##    No button
-    History Button
-    Guideline Button
+    Monthly tab    3
+    Yearly tab     3
+#    Verify that Guideline Button is working
     Validate test Remarks to branch 1
+    History Button
+
 
 
 

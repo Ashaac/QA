@@ -13,14 +13,18 @@ ${input_email}                   //input[@id='email']
 ${click_role_list}               //mat-select[@id='mat-select-1']
 ${input_role}                   //mat-option[@id='role_2']
 ${region_list}                  //mat-select[@id='mat-select-2']
-${input_region}                 //mat-option[@id='region_0']
+${unclick_input_region_all}       //mat-option[@id='region_0']
+${click_input_region_1}         //mat-option[@id='region_1']
 ${backdrop_xpath}                //html/body/div[1]/div[3]
 ${click_outside_role}            //div[@class='cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing']
+
 ${click_branch_list}                //mat-select[@id='mat-select-3']
 ${click_branch}                     //mat-option[@id='branch_1']
+
 ${add_user_click_button_xpath}      //button[@id='add_user_btn']
 ${notify_xpath}                     //nz-notification/div/div/div/div/div[1]
 ${close_button}                     //button[@id='close_btn']
+${click_regional_list}        //mat-select[@id='mat-select-5']
 
 *** Keywords ***
 Click on User Management
@@ -45,35 +49,42 @@ Click Add User
     wait until element is visible    ${add_button}
     click element    ${add_button}
     sleep    1s
-#-- inputs of users name
+vaidate inputs of users name
     click element    ${input_name}
     input text  ${input_name}    testing1a
     sleep   1s
-#-- inputs of users username
+validate inputs of users username
     click element    ${input_username}
     input text  ${input_username}    testing1a
     sleep   1s
-#-- inputs of users password
+validate inputs of users password
     click element    ${input_password}
     input text  ${input_password}    testing1a
     sleep   1s
-#-- inputs of users email
+validate inputs of users email
     click element    ${input_email}
     input text  ${input_email}   testing1a@gmail.com
     sleep   1s
-#-- input role for user -5 , regional 7 , admin -4    , manager -6
+verify click in input roles
+#for user -5 , regional 7 , admin -4    , manager -6
     click element    ${click_role_list}
     click element   ${input_role}
-#-- list region
+
+verify click list and input region
     click element    ${region_list}
-    click element   ${input_region}
+    click element   ${unclick_input_region_all}
+    click element   ${unclick_input_region_all}
+    click element   ${click_input_region_1}
     click element    ${click_outside_role}
+
 #-- inputs of branch
+verify that click in branch list
     click element    ${click_branch_list}
     click element    ${click_branch}
     sleep   1s
     click element    ${click_outside_role}
     sleep   2s
+
 # -- Add user button
 Click User Add Button
     wait until element is visible    ${add_user_click_button_xpath}
@@ -84,4 +95,6 @@ Click User Add Button
  #   log to console    ${Result}
     RUN KEYWORD IF    ${Result}>0   click element    ${close_button}
     sleep    1s
+
+
 

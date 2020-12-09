@@ -158,18 +158,19 @@ History Button
     sleep    2s
 
 
-Guideline Button
+Verify that Guideline Button is working
     wait until element is visible    ${guideline_button}
     click element    ${guideline_button}
     sleep    2s
+#    backdrop
     #-- box of guideline
-    wait until element is visible    ${guideline_xpath}
+    #wait until element is visible    ${guideline_xpath}
     click button    ${close_guideline_button}
-    sleep    1s
+    #sleep    1s
 
 
 
-Simulation Button
+Click on Simulation Button Template
     sleep    2s
     Wait Until Element Is Visible       ${simulation_button}
     click element   ${simulation_button}
@@ -198,7 +199,7 @@ No simulation
     Wait Until Element Is Visible    ${no_simulation_button}}
     click element   ${no_simulation_button}
 
-Yes simulation
+click Yes for simulation template
     Wait Until Element Is Visible    ${yes_simulation_button}
     click element    ${yes_simulation_button}
     sleep    2s
@@ -278,3 +279,4 @@ Download prebudget result
     wait until element is visible    ${download_prebudget_result_xpath}
     click element    ${download_prebudget_result_xpath}
     sleep    2s
+

@@ -4,10 +4,8 @@ Library     SeleniumLibrary
 Resource    ../pages/profitLossPrebudget.robot
 Resource    ../pages/templateButtonPage.robot
 
-Resource    ../common/navigateSidebar.robot
-
-*** Variables ***
-${rule}     fixedAsset
+#Resource    ../common/navigateSidebar.robot
+Resource    ../common/commonKeywords.robot
 
 *** Test Cases ***
 
@@ -22,18 +20,5 @@ Verify Activity Prebudget
     Refresh Button
     Monthly tab     2
     Yearly tab      2
-
-
-    Simulation Button
-    Yes simulation
-    ${count}=       GET ELEMENT COUNT        xpath=//li[@id="prebudget"]//span
-    RUN KEYWORD IF      ${count} > 0        Click rules simulation    ${rule}
-
-    toggle Activity Monitoring
-    Execution log
-    Approve click simulation
-    #Ok button to approve simualtion
-    Cancel approve simulation
-    Download prebudget result
-    toggle Activity Monitoring
-    Template log
+    Verify that simulation button in template is working fine
+    Verify that simulation done in activity log

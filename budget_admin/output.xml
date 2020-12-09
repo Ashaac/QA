@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.1 (Python 3.6.8 on win32)" generated="20201209 09:21:17.820" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20201209 21:42:40.639" rpa="false">
 <suite id="s1" name="T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget">
 <suite id="s1-s1" name="T0 verify admin" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T0_verify_admin.robot">
 <kw name="Open Budget Application" library="loginPage" type="setup">
@@ -10,38 +10,38 @@
 <arg>Chrome</arg>
 <arg>add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors") error</arg>
 </arguments>
-<msg timestamp="20201209 09:21:18.085" level="INFO">Opening browser 'Chrome' to base url 'https://10.13.189.8:8443/cas/login?service=https%3A%2F%2F10.13.189.8%3A8443%2Fbudget%2Flogin%2Fcas'.</msg>
-<status status="PASS" starttime="20201209 09:21:18.084" endtime="20201209 09:21:22.192"></status>
+<msg timestamp="20201209 21:42:41.003" level="INFO">Opening browser 'Chrome' to base url 'https://10.13.189.56:8443/cas/login?service=https%3A%2F%2F10.13.189.56%3A8443%2Fbudget%2Flogin%2Fcas'.</msg>
+<status status="PASS" starttime="20201209 21:42:41.003" endtime="20201209 21:42:45.070"></status>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20201209 09:21:22.192" endtime="20201209 09:21:24.355"></status>
+<status status="PASS" starttime="20201209 21:42:45.070" endtime="20201209 21:42:47.292"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>details-button</arg>
 </arguments>
-<msg timestamp="20201209 09:21:24.355" level="INFO">Clicking button 'details-button'.</msg>
-<status status="PASS" starttime="20201209 09:21:24.355" endtime="20201209 09:21:24.434"></status>
+<msg timestamp="20201209 21:42:47.293" level="INFO">Clicking button 'details-button'.</msg>
+<status status="PASS" starttime="20201209 21:42:47.292" endtime="20201209 21:42:47.456"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>proceed-link</arg>
 </arguments>
-<msg timestamp="20201209 09:21:24.435" level="INFO">Clicking element 'proceed-link'.</msg>
-<status status="PASS" starttime="20201209 09:21:24.434" endtime="20201209 09:21:26.176"></status>
+<msg timestamp="20201209 21:42:47.457" level="INFO">Clicking element 'proceed-link'.</msg>
+<status status="PASS" starttime="20201209 21:42:47.457" endtime="20201209 21:42:54.817"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>2S</arg>
 </arguments>
-<msg timestamp="20201209 09:21:28.188" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20201209 09:21:26.177" endtime="20201209 09:21:28.189"></status>
+<msg timestamp="20201209 21:42:56.829" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201209 21:42:54.817" endtime="20201209 21:42:56.829"></status>
 </kw>
-<status status="PASS" starttime="20201209 09:21:18.084" endtime="20201209 09:21:28.190"></status>
+<status status="PASS" starttime="20201209 21:42:41.002" endtime="20201209 21:42:56.830"></status>
 </kw>
 <test id="s1-s1-t1" name="Verify that login page works properly and is authenticated">
 <kw name="Verify Login Page is successful" library="loginPage">
@@ -54,7 +54,7 @@
 <arguments>
 <arg>id=username</arg>
 </arguments>
-<status status="PASS" starttime="20201209 09:21:28.196" endtime="20201209 09:21:28.284"></status>
+<status status="PASS" starttime="20201209 21:42:56.835" endtime="20201209 21:42:56.888"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -62,10 +62,10 @@
 <arg>id=username</arg>
 <arg>${username}</arg>
 </arguments>
-<msg timestamp="20201209 09:21:28.286" level="INFO">Typing text 'admin' into text field 'id=username'.</msg>
-<status status="PASS" starttime="20201209 09:21:28.285" endtime="20201209 09:21:28.401"></status>
+<msg timestamp="20201209 21:42:56.889" level="INFO">Typing text 'admin' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20201209 21:42:56.889" endtime="20201209 21:42:57.041"></status>
 </kw>
-<status status="PASS" starttime="20201209 09:21:28.195" endtime="20201209 09:21:28.401"></status>
+<status status="PASS" starttime="20201209 21:42:56.834" endtime="20201209 21:42:57.042"></status>
 </kw>
 <kw name="Enter Password" library="loginPage">
 <arguments>
@@ -76,7 +76,7 @@
 <arguments>
 <arg>id=password</arg>
 </arguments>
-<status status="PASS" starttime="20201209 09:21:28.401" endtime="20201209 09:21:28.431"></status>
+<status status="PASS" starttime="20201209 21:42:57.043" endtime="20201209 21:42:57.083"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -84,10 +84,10 @@
 <arg>id=password</arg>
 <arg>${password}</arg>
 </arguments>
-<msg timestamp="20201209 09:21:28.431" level="INFO">Typing text 'admin123' into text field 'id=password'.</msg>
-<status status="PASS" starttime="20201209 09:21:28.431" endtime="20201209 09:21:28.540"></status>
+<msg timestamp="20201209 21:42:57.084" level="INFO">Typing text 'admin123' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20201209 21:42:57.083" endtime="20201209 21:42:57.185"></status>
 </kw>
-<status status="PASS" starttime="20201209 09:21:28.401" endtime="20201209 09:21:28.540"></status>
+<status status="PASS" starttime="20201209 21:42:57.042" endtime="20201209 21:42:57.185"></status>
 </kw>
 <kw name="Run Keyword And Continue On Failure" library="BuiltIn">
 <doc>Runs the keyword and continues execution even if a failure occurs.</doc>
@@ -95,26 +95,17 @@
 <arg>Logo</arg>
 </arguments>
 <kw name="Logo" library="loginPage">
-<kw name="Element Should Be Visible" library="SeleniumLibrary">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>${page_logo}</arg>
-<arg>message= Extensodata Logo is visible</arg>
-</arguments>
-<msg timestamp="20201209 09:21:28.570" level="INFO">Element '//body/main[1]/a[1]/span[1]' is displayed.</msg>
-<status status="PASS" starttime="20201209 09:21:28.541" endtime="20201209 09:21:28.570"></status>
-</kw>
 <kw name="Title Should Be" library="SeleniumLibrary">
 <doc>Verifies that the current page title equals ``title``.</doc>
 <arguments>
 <arg>Login - CAS – Central Authentication Service</arg>
 </arguments>
-<msg timestamp="20201209 09:21:28.575" level="INFO">Page title is 'Login - CAS – Central Authentication Service'.</msg>
-<status status="PASS" starttime="20201209 09:21:28.570" endtime="20201209 09:21:28.575"></status>
+<msg timestamp="20201209 21:42:57.192" level="INFO">Page title is 'Login - CAS – Central Authentication Service'.</msg>
+<status status="PASS" starttime="20201209 21:42:57.186" endtime="20201209 21:42:57.192"></status>
 </kw>
-<status status="PASS" starttime="20201209 09:21:28.541" endtime="20201209 09:21:28.576"></status>
+<status status="PASS" starttime="20201209 21:42:57.186" endtime="20201209 21:42:57.192"></status>
 </kw>
-<status status="PASS" starttime="20201209 09:21:28.540" endtime="20201209 09:21:28.576"></status>
+<status status="PASS" starttime="20201209 21:42:57.186" endtime="20201209 21:42:57.192"></status>
 </kw>
 <kw name="Click Submit" library="loginPage">
 <kw name="Press Keys" library="SeleniumLibrary">
@@ -123,27 +114,27 @@
 <arg>name=submit</arg>
 <arg>RETURN</arg>
 </arguments>
-<msg timestamp="20201209 09:21:28.578" level="INFO">Sending key(s) ('RETURN',) to name=submit element.</msg>
-<msg timestamp="20201209 09:22:05.717" level="INFO">Pressing special key RETURN to element.</msg>
-<msg timestamp="20201209 09:22:05.719" level="INFO">Releasing special key RETURN.</msg>
-<status status="PASS" starttime="20201209 09:21:28.577" endtime="20201209 09:22:05.731"></status>
+<msg timestamp="20201209 21:42:57.194" level="INFO">Sending key(s) ('RETURN',) to name=submit element.</msg>
+<msg timestamp="20201209 21:43:25.207" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20201209 21:43:25.208" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20201209 21:42:57.193" endtime="20201209 21:43:25.236"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>2s</arg>
 </arguments>
-<msg timestamp="20201209 09:22:07.744" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20201209 09:22:05.731" endtime="20201209 09:22:07.745"></status>
+<msg timestamp="20201209 21:43:27.240" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201209 21:43:25.236" endtime="20201209 21:43:27.240"></status>
 </kw>
-<status status="PASS" starttime="20201209 09:21:28.576" endtime="20201209 09:22:07.746"></status>
+<status status="PASS" starttime="20201209 21:42:57.192" endtime="20201209 21:43:27.240"></status>
 </kw>
-<status status="PASS" starttime="20201209 09:21:28.194" endtime="20201209 09:22:07.749"></status>
+<status status="PASS" starttime="20201209 21:42:56.833" endtime="20201209 21:43:27.241"></status>
 </kw>
-<status status="PASS" starttime="20201209 09:21:28.190" endtime="20201209 09:22:07.751" critical="yes"></status>
+<status status="PASS" starttime="20201209 21:42:56.830" endtime="20201209 21:43:27.242" critical="yes"></status>
 </test>
 <doc>this suite verifies admin pge.</doc>
-<status status="PASS" starttime="20201209 09:21:17.851" endtime="20201209 09:22:07.758"></status>
+<status status="PASS" starttime="20201209 21:42:40.676" endtime="20201209 21:43:27.246"></status>
 </suite>
 <suite id="s1-s2" name="T1 user management" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T1_user_management.robot">
 <test id="s1-s2-t1" name="Verify User Add">
@@ -153,52 +144,325 @@
 <arguments>
 <arg>${toggle_usermanagement_xpath}</arg>
 </arguments>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201209 09:23:09.795" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20201209 09:22:46.528" endtime="20201209 09:23:09.795"></status>
+<status status="PASS" starttime="20201209 21:43:27.299" endtime="20201209 21:43:27.346"></status>
 </kw>
-<msg timestamp="20201209 09:23:09.797" level="FAIL">Element '//li[@id='user']//div' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20201209 09:22:07.841" endtime="20201209 09:23:09.798"></status>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${toggle_usermanagement_xpath}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:27.347" level="INFO">Clicking element '//li[@id='user']//div'.</msg>
+<status status="PASS" starttime="20201209 21:43:27.346" endtime="20201209 21:43:27.434"></status>
 </kw>
-<status status="FAIL" starttime="20201209 09:22:07.841" endtime="20201209 09:23:09.798"></status>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20201209 21:43:30.444" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20201209 21:43:27.435" endtime="20201209 21:43:30.445"></status>
 </kw>
-<status status="FAIL" starttime="20201209 09:22:07.840" endtime="20201209 09:23:09.799" critical="yes">Element '//li[@id='user']//div' not visible after 5 seconds.</status>
-</test>
-<doc>this suite verifies User Management page.</doc>
-<status status="FAIL" starttime="20201209 09:22:07.785" endtime="20201209 09:23:09.801"></status>
-</suite>
-<suite id="s1-s3" name="T1 verify capex prebudget" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T1_verify_capex_prebudget.robot">
-<test id="s1-s3-t1" name="Verify Capex Prebudget">
-<kw name="Toggle Prebudget" library="capexPrebudget">
+<status status="PASS" starttime="20201209 21:43:27.298" endtime="20201209 21:43:30.446"></status>
+</kw>
+<kw name="Click Users" library="userManagementPage">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
-<arg>xpath=//li[@id="${menu_name_xpath}"]//span</arg>
+<arg>${click_users_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201209 21:43:30.450" endtime="20201209 21:43:30.547"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${click_users_xpath}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:30.548" level="INFO">Clicking element '//li//a[@id='user_info']'.</msg>
+<status status="PASS" starttime="20201209 21:43:30.548" endtime="20201209 21:43:30.878"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20201209 21:43:33.886" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20201209 21:43:30.878" endtime="20201209 21:43:33.886"></status>
+</kw>
+<status status="PASS" starttime="20201209 21:43:30.448" endtime="20201209 21:43:33.886"></status>
+</kw>
+<kw name="Refresh User Button" library="userManagementPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${refresh_button_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201209 21:43:33.888" endtime="20201209 21:43:33.929"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${refresh_button_xpath}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:33.930" level="INFO">Clicking element '//app-userdashboard/div/div/div/div/div[2]/div[1]/span/button[2]'.</msg>
+<status status="PASS" starttime="20201209 21:43:33.930" endtime="20201209 21:43:34.041"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20201209 21:43:35.048" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20201209 21:43:34.041" endtime="20201209 21:43:35.048"></status>
+</kw>
+<status status="PASS" starttime="20201209 21:43:33.887" endtime="20201209 21:43:35.048"></status>
+</kw>
+<kw name="Click Add User" library="userManagementPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${add_button}</arg>
+</arguments>
+<status status="PASS" starttime="20201209 21:43:35.051" endtime="20201209 21:43:35.186"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${add_button}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:35.187" level="INFO">Clicking element '//app-userdashboard/div/div/div/div/div[2]/div[1]/span/button[1]'.</msg>
+<status status="PASS" starttime="20201209 21:43:35.186" endtime="20201209 21:43:35.519"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20201209 21:43:36.527" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20201209 21:43:35.519" endtime="20201209 21:43:36.527"></status>
+</kw>
+<status status="PASS" starttime="20201209 21:43:35.050" endtime="20201209 21:43:36.528"></status>
+</kw>
+<kw name="vaidate inputs of users name" library="userManagementPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${input_name}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:36.532" level="INFO">Clicking element '//input[@id='name']'.</msg>
+<status status="PASS" starttime="20201209 21:43:36.531" endtime="20201209 21:43:36.858"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${input_name}</arg>
+<arg>testing1a</arg>
+</arguments>
+<msg timestamp="20201209 21:43:36.860" level="INFO">Typing text 'testing1a' into text field '//input[@id='name']'.</msg>
+<status status="PASS" starttime="20201209 21:43:36.859" endtime="20201209 21:43:37.041"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20201209 21:43:38.043" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20201209 21:43:37.042" endtime="20201209 21:43:38.044"></status>
+</kw>
+<status status="PASS" starttime="20201209 21:43:36.530" endtime="20201209 21:43:38.044"></status>
+</kw>
+<kw name="validate inputs of users username" library="userManagementPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${input_username}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:38.048" level="INFO">Clicking element '//input[@id='username']'.</msg>
+<status status="PASS" starttime="20201209 21:43:38.047" endtime="20201209 21:43:38.264"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${input_username}</arg>
+<arg>testing1a</arg>
+</arguments>
+<msg timestamp="20201209 21:43:38.265" level="INFO">Typing text 'testing1a' into text field '//input[@id='username']'.</msg>
+<status status="PASS" starttime="20201209 21:43:38.264" endtime="20201209 21:43:38.374"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20201209 21:43:39.388" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20201209 21:43:38.374" endtime="20201209 21:43:39.388"></status>
+</kw>
+<status status="PASS" starttime="20201209 21:43:38.046" endtime="20201209 21:43:39.390"></status>
+</kw>
+<kw name="validate inputs of users password" library="userManagementPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${input_password}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:39.394" level="INFO">Clicking element '//input[@id='password']'.</msg>
+<status status="PASS" starttime="20201209 21:43:39.393" endtime="20201209 21:43:39.655"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${input_password}</arg>
+<arg>testing1a</arg>
+</arguments>
+<msg timestamp="20201209 21:43:39.658" level="INFO">Typing text 'testing1a' into text field '//input[@id='password']'.</msg>
+<status status="PASS" starttime="20201209 21:43:39.656" endtime="20201209 21:43:39.913"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20201209 21:43:40.929" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20201209 21:43:39.913" endtime="20201209 21:43:40.930"></status>
+</kw>
+<status status="PASS" starttime="20201209 21:43:39.392" endtime="20201209 21:43:40.930"></status>
+</kw>
+<kw name="validate inputs of users email" library="userManagementPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${input_email}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:40.934" level="INFO">Clicking element '//input[@id='email']'.</msg>
+<status status="PASS" starttime="20201209 21:43:40.933" endtime="20201209 21:43:41.162"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${input_email}</arg>
+<arg>testing1a@gmail.com</arg>
+</arguments>
+<msg timestamp="20201209 21:43:41.163" level="INFO">Typing text 'testing1a@gmail.com' into text field '//input[@id='email']'.</msg>
+<status status="PASS" starttime="20201209 21:43:41.162" endtime="20201209 21:43:41.482"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20201209 21:43:42.496" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20201209 21:43:41.482" endtime="20201209 21:43:42.497"></status>
+</kw>
+<status status="PASS" starttime="20201209 21:43:40.932" endtime="20201209 21:43:42.498"></status>
+</kw>
+<kw name="verify click in input roles" library="userManagementPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${click_role_list}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:42.505" level="INFO">Clicking element '//mat-select[@id='mat-select-1']'.</msg>
+<status status="PASS" starttime="20201209 21:43:42.502" endtime="20201209 21:43:42.685"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${input_role}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:42.685" level="INFO">Clicking element '//mat-option[@id='role_2']'.</msg>
+<status status="PASS" starttime="20201209 21:43:42.685" endtime="20201209 21:43:42.774"></status>
+</kw>
+<status status="PASS" starttime="20201209 21:43:42.501" endtime="20201209 21:43:42.774"></status>
+</kw>
+<kw name="verify click list and input region" library="userManagementPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${region_list}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:42.776" level="INFO">Clicking element '//mat-select[@id='mat-select-2']'.</msg>
+<status status="PASS" starttime="20201209 21:43:42.776" endtime="20201209 21:43:42.864"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${unclick_input_region_all}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:42.864" level="INFO">Clicking element '//mat-option[@id='region_0']'.</msg>
+<status status="PASS" starttime="20201209 21:43:42.864" endtime="20201209 21:43:42.956"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${unclick_input_region_all}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:42.957" level="INFO">Clicking element '//mat-option[@id='region_0']'.</msg>
+<status status="PASS" starttime="20201209 21:43:42.956" endtime="20201209 21:43:43.020"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${click_input_region_1}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:43.021" level="INFO">Clicking element '//mat-option[@id='region_1']'.</msg>
+<status status="PASS" starttime="20201209 21:43:43.020" endtime="20201209 21:43:43.118"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${click_outside_role}</arg>
+</arguments>
+<msg timestamp="20201209 21:43:43.118" level="INFO">Clicking element '//div[@class='cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing']'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20201209 21:44:02.717" level="FAIL">AttributeError: 'NoneType' object has no attribute 'encode'</msg>
+<status status="FAIL" starttime="20201209 21:43:43.135" endtime="20201209 21:44:02.718"></status>
+</kw>
+<msg timestamp="20201209 21:44:02.718" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: AttributeError: 'NoneType' object has no attribute 'encode'</msg>
+<msg timestamp="20201209 21:44:02.740" level="FAIL">Element with locator '//div[@class='cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing']' not found.</msg>
+<status status="FAIL" starttime="20201209 21:43:43.118" endtime="20201209 21:44:02.740"></status>
+</kw>
+<status status="FAIL" starttime="20201209 21:43:42.775" endtime="20201209 21:44:02.741"></status>
+</kw>
+<status status="FAIL" starttime="20201209 21:43:27.291" endtime="20201209 21:44:02.747" critical="yes">Element with locator '//div[@class='cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing']' not found.</status>
+</test>
+<doc>this suite verifies User Management page.</doc>
+<status status="FAIL" starttime="20201209 21:43:27.256" endtime="20201209 21:44:02.754"></status>
+</suite>
+<suite id="s1-s3" name="T1 verify capex prebudget" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T1_verify_capex_prebudget.robot">
+<test id="s1-s3-t1" name="Verify Capex Prebudget">
+<kw name="Toggle Prebudget" library="navigateSidebar">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//li[@id="${menu_prebudget_xpath}"]//span</arg>
 </arguments>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201209 09:23:35.396" level="FAIL">WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.828" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<status status="FAIL" starttime="20201209 09:23:23.191" endtime="20201209 09:23:35.396"></status>
+<status status="FAIL" starttime="20201209 21:44:02.824" endtime="20201209 21:44:02.828"></status>
 </kw>
-<msg timestamp="20201209 09:23:35.396" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.828" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<msg timestamp="20201209 09:23:35.400" level="FAIL">WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.830" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<status status="FAIL" starttime="20201209 09:23:09.859" endtime="20201209 09:23:35.400"></status>
+<status status="FAIL" starttime="20201209 21:44:02.822" endtime="20201209 21:44:02.831"></status>
 </kw>
-<status status="FAIL" starttime="20201209 09:23:09.859" endtime="20201209 09:23:35.401"></status>
+<status status="FAIL" starttime="20201209 21:44:02.821" endtime="20201209 21:44:02.831"></status>
 </kw>
-<status status="FAIL" starttime="20201209 09:23:09.857" endtime="20201209 09:23:35.401" critical="yes">WebDriverException: Message: chrome not reachable
+<status status="FAIL" starttime="20201209 21:44:02.818" endtime="20201209 21:44:02.832" critical="yes">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </status>
 </test>
 <doc>this suite verifies Capex page.</doc>
-<status status="FAIL" starttime="20201209 09:23:09.810" endtime="20201209 09:23:35.404"></status>
+<status status="FAIL" starttime="20201209 21:44:02.762" endtime="20201209 21:44:02.834"></status>
 </suite>
 <suite id="s1-s4" name="T2 verify hr prebudget" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T2_verify_hr_prebudget.robot">
 <test id="s1-s4-t1" name="Verify Hr Prebudget">
@@ -211,27 +475,31 @@
 </arguments>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201209 09:23:59.827" level="FAIL">WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.860" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<status status="FAIL" starttime="20201209 09:23:47.630" endtime="20201209 09:23:59.828"></status>
+<status status="FAIL" starttime="20201209 21:44:02.857" endtime="20201209 21:44:02.860"></status>
 </kw>
-<msg timestamp="20201209 09:23:59.828" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.860" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<msg timestamp="20201209 09:23:59.833" level="FAIL">WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.866" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<status status="FAIL" starttime="20201209 09:23:35.429" endtime="20201209 09:23:59.833"></status>
+<status status="FAIL" starttime="20201209 21:44:02.855" endtime="20201209 21:44:02.866"></status>
 </kw>
-<status status="FAIL" starttime="20201209 09:23:35.429" endtime="20201209 09:23:59.833"></status>
+<status status="FAIL" starttime="20201209 21:44:02.854" endtime="20201209 21:44:02.866"></status>
 </kw>
-<status status="FAIL" starttime="20201209 09:23:35.428" endtime="20201209 09:23:59.834" critical="yes">WebDriverException: Message: chrome not reachable
+<status status="FAIL" starttime="20201209 21:44:02.853" endtime="20201209 21:44:02.866" critical="yes">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </status>
 </test>
 <doc>this suite verifies hr page.</doc>
-<status status="FAIL" starttime="20201209 09:23:35.408" endtime="20201209 09:23:59.838"></status>
+<status status="FAIL" starttime="20201209 21:44:02.837" endtime="20201209 21:44:02.868"></status>
 </suite>
 <suite id="s1-s5" name="T3 verify activity prebudget" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T3_verify_activity_prebudget.robot">
 <test id="s1-s5-t1" name="Verify Activity Prebudget">
@@ -244,27 +512,31 @@
 </arguments>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201209 09:24:24.280" level="FAIL">WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.893" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<status status="FAIL" starttime="20201209 09:24:12.072" endtime="20201209 09:24:24.281"></status>
+<status status="FAIL" starttime="20201209 21:44:02.891" endtime="20201209 21:44:02.894"></status>
 </kw>
-<msg timestamp="20201209 09:24:24.281" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.894" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<msg timestamp="20201209 09:24:24.286" level="FAIL">WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.896" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<status status="FAIL" starttime="20201209 09:23:59.892" endtime="20201209 09:24:24.286"></status>
+<status status="FAIL" starttime="20201209 21:44:02.889" endtime="20201209 21:44:02.896"></status>
 </kw>
-<status status="FAIL" starttime="20201209 09:23:59.891" endtime="20201209 09:24:24.287"></status>
+<status status="FAIL" starttime="20201209 21:44:02.889" endtime="20201209 21:44:02.896"></status>
 </kw>
-<status status="FAIL" starttime="20201209 09:23:59.889" endtime="20201209 09:24:24.288" critical="yes">WebDriverException: Message: chrome not reachable
+<status status="FAIL" starttime="20201209 21:44:02.888" endtime="20201209 21:44:02.897" critical="yes">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </status>
 </test>
 <doc>this suite verifies Capex page.</doc>
-<status status="FAIL" starttime="20201209 09:23:59.849" endtime="20201209 09:24:24.293"></status>
+<status status="FAIL" starttime="20201209 21:44:02.872" endtime="20201209 21:44:02.898"></status>
 </suite>
 <suite id="s1-s6" name="T4 verify bs prebudget" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T4_verify_bs_prebudget.robot">
 <test id="s1-s6-t1" name="Verify Activity Prebudget">
@@ -277,27 +549,31 @@
 </arguments>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201209 09:24:48.763" level="FAIL">WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.919" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<status status="FAIL" starttime="20201209 09:24:36.552" endtime="20201209 09:24:48.763"></status>
+<status status="FAIL" starttime="20201209 21:44:02.916" endtime="20201209 21:44:02.919"></status>
 </kw>
-<msg timestamp="20201209 09:24:48.764" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.919" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<msg timestamp="20201209 09:24:48.786" level="FAIL">WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.921" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<status status="FAIL" starttime="20201209 09:24:24.349" endtime="20201209 09:24:48.786"></status>
+<status status="FAIL" starttime="20201209 21:44:02.915" endtime="20201209 21:44:02.921"></status>
 </kw>
-<status status="FAIL" starttime="20201209 09:24:24.349" endtime="20201209 09:24:48.787"></status>
+<status status="FAIL" starttime="20201209 21:44:02.914" endtime="20201209 21:44:02.921"></status>
 </kw>
-<status status="FAIL" starttime="20201209 09:24:24.348" endtime="20201209 09:24:48.789" critical="yes">WebDriverException: Message: chrome not reachable
+<status status="FAIL" starttime="20201209 21:44:02.914" endtime="20201209 21:44:02.921" critical="yes">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </status>
 </test>
 <doc>this suite verifies Capex page.</doc>
-<status status="FAIL" starttime="20201209 09:24:24.305" endtime="20201209 09:24:48.795"></status>
+<status status="FAIL" starttime="20201209 21:44:02.901" endtime="20201209 21:44:02.922"></status>
 </suite>
 <suite id="s1-s7" name="T5 verify profitloss prebudget" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T5_verify_profitloss_prebudget.robot">
 <test id="s1-s7-t1" name="Verify Activity Prebudget">
@@ -310,29 +586,33 @@
 </arguments>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20201209 09:25:13.297" level="FAIL">WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.943" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<status status="FAIL" starttime="20201209 09:25:01.085" endtime="20201209 09:25:13.298"></status>
+<status status="FAIL" starttime="20201209 21:44:02.941" endtime="20201209 21:44:02.943"></status>
 </kw>
-<msg timestamp="20201209 09:25:13.298" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.943" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<msg timestamp="20201209 09:25:13.305" level="FAIL">WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.944" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<status status="FAIL" starttime="20201209 09:24:48.871" endtime="20201209 09:25:13.306"></status>
+<status status="FAIL" starttime="20201209 21:44:02.940" endtime="20201209 21:44:02.945"></status>
 </kw>
-<status status="FAIL" starttime="20201209 09:24:48.870" endtime="20201209 09:25:13.306"></status>
+<status status="FAIL" starttime="20201209 21:44:02.940" endtime="20201209 21:44:02.945"></status>
 </kw>
-<status status="FAIL" starttime="20201209 09:24:48.866" endtime="20201209 09:25:13.309" critical="yes">WebDriverException: Message: chrome not reachable
+<status status="FAIL" starttime="20201209 21:44:02.938" endtime="20201209 21:44:02.945" critical="yes">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </status>
 </test>
 <doc>this suite verifies Capex page.</doc>
-<status status="FAIL" starttime="20201209 09:24:48.802" endtime="20201209 09:25:13.318"></status>
+<status status="FAIL" starttime="20201209 21:44:02.925" endtime="20201209 21:44:02.946"></status>
 </suite>
-<status status="FAIL" starttime="20201209 09:21:17.822" endtime="20201209 09:25:13.336"></status>
+<status status="FAIL" starttime="20201209 21:42:40.642" endtime="20201209 21:44:02.949"></status>
 </suite>
 <statistics>
 <total>
@@ -353,19 +633,25 @@
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20201209 09:23:35.396" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.718" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: AttributeError: 'NoneType' object has no attribute 'encode'</msg>
+<msg timestamp="20201209 21:44:02.828" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<msg timestamp="20201209 09:23:59.828" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.860" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<msg timestamp="20201209 09:24:24.281" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.894" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<msg timestamp="20201209 09:24:48.764" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.919" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
-<msg timestamp="20201209 09:25:13.298" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+<msg timestamp="20201209 21:44:02.943" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=87.0.4280.88)
 </msg>
 </errors>
