@@ -226,7 +226,7 @@ Validate test Remarks to branch 1
 
 #-- for  view  remarks
 Click to View remarks and chat menu
-    wait until element is visible    ${click_view_remarks}
+    wait until element is visible   ${click_view_remarks}
     click element    ${click_view_remarks}
     sleep   2s
     click element    ${click_view_remarks_branch_1}

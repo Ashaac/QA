@@ -1,0 +1,15 @@
+####virtual environment###
+budget_admin/venv1
+
+###intellij pycharm###
+.xml
+.idea
+*.idea
+.idea/
+
+
+selenium-screenshot-1.png
+
+
+###images###
+*/images
