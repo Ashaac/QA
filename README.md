@@ -1,5 +1,6 @@
-# Test budget
-Test of budget Application 
+# Budget Application Test
+Test of Budget Application Admin <BR>
+This application allows to estimate and prepare budget of bank admin side. 
 
 ## Table of Contents
 1. [Pre-requisites](#preReq)
@@ -28,7 +29,7 @@ pip install -r requirements.txt
 * download drivers (chrome) and set environment variable. Follow the steps provided in the link.
     * [chrome driver setup steps](https://zwbetz.com/download-chromedriver-binary-and-add-to-your-path-for-automated-functional-testing/)
  and Pycharm IDE. You can follow [installation pycharm ide steps](https://www.guru99.com/how-to-install-python.html).
-* Also see Requirement present in [requirement.txt](budget_admin\requirement.txt) file 
+* Also see Requirement present in [requirement.txt](requirement.txt) file 
 ## Run project <a name="run project"></a> 
 To run the test suites, Navigate to `Budget Application Login` and run the below command as mentioned:
 
@@ -42,6 +43,13 @@ robot --variable rule:fixedAssets  test_suites\*.robot
 robot --variable rule:Netprofit test_suites\*.robot
 ```
 
+For upload in worksheet
+```
+Need to place the worksheet of templates like: capex,Activity base ,BalanceSheet, Profitloss 
+in location and place that location in  test case named:
+Verify that Upload Worksheet button is working     [location]//ab.xlsx - for activity based | [location]//cpx.xlsx - for capex
+ 
+```
 ## Reporting<a name="report"></a>
 After we run test result can be seen in html file in chrome browser.
   

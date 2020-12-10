@@ -7,7 +7,7 @@ Resource    ../pages/loginPage.robot
 
 
 Suite Setup    Open Budget Application
-#Suite Teardown  close all browsers
+Suite Teardown  close all browsers
 
 
 *** Test Cases ***

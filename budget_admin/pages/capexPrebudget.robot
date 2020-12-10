@@ -9,12 +9,12 @@ ${click_outside_cell_xpath}             //table[@id='template_tree_grid_3_gridco
 ${count_of_capex_particulars_xpath}     //table[@id='template_tree_grid_3_gridcontrol_content_table']//tbody//tr
 *** Keywords ***
 
-Open Capex Prebudget Sidebar
+Verify that Capex Prebudget Sidebar is clicked
     Wait Until Element Is Visible       xpath=//a[@id='${menu_name_xpath}_3']    timeout=10s
     click element    xpath=//a[@id='${menu_name_xpath}_3']
     sleep   2s
 
-Capex unit price prebudget
+Verify to input values in Capex unit price prebudget
     ${count} =    get element count    ${count_of_capex_particulars_xpath}
 #    log to console    ===================${count}===========================
     FOR    ${index}    IN RANGE    2    ${count}

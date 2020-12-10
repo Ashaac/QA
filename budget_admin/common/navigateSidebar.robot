@@ -11,7 +11,7 @@ ${click_template_log_xpath}                         //li//a[@id='activity_templa
 ${click_history_template_log}                       //button[@id='history-button-template']
 *** Keywords ***
 
-Toggle Prebudget
+Verify that Toggle Prebudget menu is clicked
     Wait Until Element Is Visible        xpath=//li[@id="${menu_prebudget_xpath}"]//span
     click element    xpath=//li[@id="${menu_prebudget_xpath}"]//span
     sleep   2s

@@ -8,12 +8,13 @@ Resource    ../pages/templateButtonPage.robot
 *** Test Cases ***
 
 Verify Hr Prebudget
-    Open hr Prebudget
-    Download Worksheet Template
-    Download Excel Template
-    Upload Worksheet  E://for_branch_999//hr.xlsx
-    Upload worksheet difference tab
-    Upload submit to database
-    Refresh Button
-    Monthly tab     4
-    Yearly tab      4
+    Verify that hr Prebudget Sidebar is clicked
+    Verify Download Worksheet Template button is clicked and downloaded
+    Verify that Download Excel Template button is clicked
+    Verify that Upload Worksheet button is working     E://for_branch_999//hr.xlsx
+    Click on Upload worksheet difference tab
+    Click on Upload submit to database
+    Verify that Refresh Button prebudget is clicked
+    Click on Monthly tab    4
+    Click on Yearly tab     4
+

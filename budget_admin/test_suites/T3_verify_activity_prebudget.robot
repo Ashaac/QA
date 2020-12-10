@@ -8,12 +8,14 @@ Resource    ../pages/templateButtonPage.robot
 
 Verify Activity Prebudget
 
-    Open Activity Prebudget
-    Download Worksheet Template
-    Download Excel Template
-    Upload Worksheet  E://for_branch_999//ab.xlsx
-    Upload worksheet difference tab
-    Upload submit to database
-    Refresh Button
-    Monthly tab     5
-    Yearly tab      5
+    Verify that Activity Based Prebudget Sidebar is clicked
+    Verify Download Worksheet Template button is clicked and downloaded
+    Verify that Download Excel Template button is clicked
+    Verify that Upload Worksheet button is working     E://for_branch_999//ab.xlsx
+    Click on Upload worksheet difference tab
+    Click on Upload submit to database
+    Verify that Refresh Button prebudget is clicked
+    Click on Monthly tab    5
+    Click on Yearly tab     5
+
+

@@ -61,14 +61,14 @@ Download Dropdown Button
     click element    ${download_dropdown}
     sleep   1s
 
-Download Worksheet Template
+Verify Download Worksheet Template button is clicked and downloaded
     Download Dropdown Button
 #   Download Worksheet
     Wait Until Element Is Visible   ${download_worksheet_xpath}
     click element   ${download_worksheet_xpath}
     sleep   5s
 
-Download Excel Template
+Verify that Download Excel Template button is clicked
     Download Dropdown Button
 #   Download Excel
     Wait Until Element Is Visible      ${download_excel_xpath}
@@ -76,7 +76,7 @@ Download Excel Template
     sleep   2s
 
 
-Upload Worksheet
+Verify that Upload Worksheet button is working
     [Arguments]    ${upload_cpx}
     Download Dropdown Button
     sleep    1s
@@ -90,7 +90,7 @@ Upload Worksheet
     Execute Javascript    ${file_upload_none}
     sleep   1s
 
-Upload worksheet difference tab
+Click on Upload worksheet difference tab
     click element   ${worksheet_difference_tab_xpath}
     sleep       1s
 # Upload worksheet submit tab
@@ -106,7 +106,7 @@ Upload worksheet difference tab
 
 
 
-Upload submit to database
+Click on Upload submit to database
     WAIT UNTIL ELEMENT IS VISIBLE    ${submit_to_database_upload_button}
     click element        ${submit_to_database_upload_button}
     sleep    2s
@@ -115,13 +115,13 @@ Upload submit to database
     sleep   1s
 
 
-Save Button
+Verify that Save Button is clicked
     Wait Until Element Is Visible      ${save_button}
     click element    ${save_button}
     sleep   2s
 #   Yes confirm save
 
-Yes button
+Verify that Yes button is clicked and values are saved
     Wait until element is visible    ${yes_button}
     click element       ${yes_button}
     sleep   5s
@@ -131,25 +131,25 @@ No button
     click element       ${no_button}
     sleep   5s
 
-Monthly tab
+Click on Monthly tab
    [Arguments]    ${template_id}
     Wait until element is visible    //button[@id='month_view_tab_${template_id}']
     click element       //button[@id='month_view_tab_${template_id}']
     sleep   2s
 
-Yearly tab
+Click on Yearly tab
    [Arguments]    ${template_id}
     Wait until element is visible    //button[@id='year_view_tab_${template_id}']
     click element       //button[@id='year_view_tab_${template_id}']
     sleep   2s
 
-Refresh Button
+Verify that Refresh Button prebudget is clicked
     wait until element is visible   ${template_refresh}
     click element    ${template_refresh}
     sleep    2s
 
 
-History Button
+Verify that History Button is working
     wait until element is visible    ${history_button}
     click element    ${history_button}
     sleep   2s
