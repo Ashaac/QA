@@ -10,19 +10,20 @@ ${page_logo}            //body/main[1]/a[1]/span[1]
 #${url}                  https://10.13.189.56:8443/cas/login?service=https%3A%2F%2F10.13.189.56%3A8443%2Fbudget%2Flogin%2Fcas
 ${url}                 https://10.13.189.8:8443/cas/login?service=https%3A%2F%2F10.13.189.8%3A8443%2Fbudget%2Flogin%2Fcas
 
-
+${header_text}          id=servicedesc
+${message_invalid_password}     //*[@id="fm1"]/div/span
 
 *** Keywords ***
-Enter Username
+Enter valid Username
     [Arguments]     ${username}
     wait until element is visible    id=username
     input text      id=username     ${username}
 
-Title
+Title should be login
 #   element should be visible    ${page_logo}     message= Extensodata Logo is visible
    title should be    Login - CAS – Central Authentication Service
 
-Enter Password
+Enter valid Password
     [Arguments]    ${password}
     wait until element is visible    id=password
     input text      id=password     ${password}
@@ -54,12 +55,22 @@ Open Budget Application
 Verify Invalid Login
     Enter Invalid Username  asds
     Enter Invalid Password  sdfds
+    run keyword and continue on failure    title should be login
+    run keyword and continue on failure    page should contain header text
     Click Submit
-
+    Message after invalid username or password
 
 Verify Login Page is successful
-    Enter Username    admin
-    Enter Password    admin123
-    run keyword and continue on failure    Title
+    run keyword and continue on failure    title should be login
+    run keyword and continue on failure    page should contain header text
+    Enter valid Username    admin
+    Enter valid Password    admin123
     Click Submit
-#    run keyword and continue on failure    Verify Invalid Login
+
+
+page should contain header text
+    run keyword and continue on failure    element should be visible    ${header_text}     message=Extenso Data Budget Operation Secured Login
+
+Message after invalid username or password
+    run keyword and continue on failure   element should be visible    ${message_invalid_password}     message=Your account is not recognized and cannot login at this time.
+

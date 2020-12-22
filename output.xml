@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20201222 16:59:43.645" rpa="false">
+<suite id="s1" name="T0 verify admin" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T0_verify_admin.robot">
+<kw name="Open Budget Application" library="loginPage" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<arg>add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors") error</arg>
+</arguments>
+<msg timestamp="20201222 16:59:44.000" level="INFO">Opening browser 'Chrome' to base url 'https://10.13.189.8:8443/cas/login?service=https%3A%2F%2F10.13.189.8%3A8443%2Fbudget%2Flogin%2Fcas'.</msg>
+<status status="PASS" starttime="20201222 16:59:43.999" endtime="20201222 16:59:47.759"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201222 16:59:47.759" endtime="20201222 16:59:49.902"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>details-button</arg>
+</arguments>
+<msg timestamp="20201222 16:59:49.903" level="INFO">Clicking button 'details-button'.</msg>
+<status status="PASS" starttime="20201222 16:59:49.902" endtime="20201222 16:59:49.963"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>proceed-link</arg>
+</arguments>
+<msg timestamp="20201222 16:59:49.963" level="INFO">Clicking element 'proceed-link'.</msg>
+<status status="PASS" starttime="20201222 16:59:49.963" endtime="20201222 16:59:50.037"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2S</arg>
+</arguments>
+<msg timestamp="20201222 16:59:52.039" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201222 16:59:50.037" endtime="20201222 16:59:52.039"></status>
+</kw>
+<status status="PASS" starttime="20201222 16:59:43.999" endtime="20201222 16:59:52.039"></status>
+</kw>
+<test id="s1-t1" name="Verify that login page works properly and is authenticated">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify Invalid Login</arg>
+</arguments>
+<kw name="Verify Invalid Login" library="loginPage">
+<kw name="Enter Invalid Username" library="loginPage">
+<arguments>
+<arg>asds</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>id=username</arg>
+</arguments>
+<status status="PASS" starttime="20201222 16:59:52.041" endtime="20201222 16:59:52.495"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${invalid_username}</arg>
+</arguments>
+<msg timestamp="20201222 16:59:52.495" level="INFO">Typing text 'asds' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20201222 16:59:52.495" endtime="20201222 16:59:52.587"></status>
+</kw>
+<status status="PASS" starttime="20201222 16:59:52.041" endtime="20201222 16:59:52.587"></status>
+</kw>
+<kw name="Enter Invalid Password" library="loginPage">
+<arguments>
+<arg>sdfds</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>id=password</arg>
+</arguments>
+<status status="PASS" starttime="20201222 16:59:52.588" endtime="20201222 16:59:52.622"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=password</arg>
+<arg>${invalid_password}</arg>
+</arguments>
+<msg timestamp="20201222 16:59:52.623" level="INFO">Typing text 'sdfds' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20201222 16:59:52.622" endtime="20201222 16:59:52.715"></status>
+</kw>
+<status status="PASS" starttime="20201222 16:59:52.587" endtime="20201222 16:59:52.715"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>title should be login</arg>
+</arguments>
+<kw name="Title should be login" library="loginPage">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>Login - CAS – Central Authentication Service</arg>
+</arguments>
+<msg timestamp="20201222 16:59:52.721" level="INFO">Page title is 'Login - CAS – Central Authentication Service'.</msg>
+<status status="PASS" starttime="20201222 16:59:52.716" endtime="20201222 16:59:52.721"></status>
+</kw>
+<status status="PASS" starttime="20201222 16:59:52.716" endtime="20201222 16:59:52.721"></status>
+</kw>
+<status status="PASS" starttime="20201222 16:59:52.715" endtime="20201222 16:59:52.721"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>page should contain header text</arg>
+</arguments>
+<kw name="page should contain header text" library="loginPage">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>element should be visible</arg>
+<arg>${header_text}</arg>
+<arg>message=Extenso Data Budget Operation Secured Login</arg>
+</arguments>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${header_text}</arg>
+<arg>message=Extenso Data Budget Operation Secured Login</arg>
+</arguments>
+<msg timestamp="20201222 16:59:52.742" level="INFO">Element 'id=servicedesc' is displayed.</msg>
+<status status="PASS" starttime="20201222 16:59:52.723" endtime="20201222 16:59:52.742"></status>
+</kw>
+<status status="PASS" starttime="20201222 16:59:52.722" endtime="20201222 16:59:52.742"></status>
+</kw>
+<status status="PASS" starttime="20201222 16:59:52.722" endtime="20201222 16:59:52.743"></status>
+</kw>
+<status status="PASS" starttime="20201222 16:59:52.722" endtime="20201222 16:59:52.743"></status>
+</kw>
+<kw name="Click Submit" library="loginPage">
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>name=submit</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20201222 16:59:52.744" level="INFO">Sending key(s) ('RETURN',) to name=submit element.</msg>
+<msg timestamp="20201222 17:00:12.129" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20201222 17:00:12.129" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20201222 16:59:52.743" endtime="20201222 17:00:13.882"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201222 17:00:15.885" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201222 17:00:13.882" endtime="20201222 17:00:15.885"></status>
+</kw>
+<status status="PASS" starttime="20201222 16:59:52.743" endtime="20201222 17:00:15.886"></status>
+</kw>
+<kw name="Message after invalid username or password" library="loginPage">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>element should be visible</arg>
+<arg>${message_invalid_password}</arg>
+<arg>message=Your account is not recognized and cannot login at this time.</arg>
+</arguments>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${message_invalid_password}</arg>
+<arg>message=Your account is not recognized and cannot login at this time.</arg>
+</arguments>
+<msg timestamp="20201222 17:00:15.943" level="INFO">Element '//*[@id="fm1"]/div/span' is displayed.</msg>
+<status status="PASS" starttime="20201222 17:00:15.890" endtime="20201222 17:00:15.943"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:15.888" endtime="20201222 17:00:15.943"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:15.887" endtime="20201222 17:00:15.943"></status>
+</kw>
+<status status="PASS" starttime="20201222 16:59:52.041" endtime="20201222 17:00:15.943"></status>
+</kw>
+<status status="PASS" starttime="20201222 16:59:52.040" endtime="20201222 17:00:15.943"></status>
+</kw>
+<kw name="Verify Login Page is successful" library="loginPage">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>title should be login</arg>
+</arguments>
+<kw name="Title should be login" library="loginPage">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>Login - CAS – Central Authentication Service</arg>
+</arguments>
+<msg timestamp="20201222 17:00:15.950" level="INFO">Page title is 'Login - CAS – Central Authentication Service'.</msg>
+<status status="PASS" starttime="20201222 17:00:15.946" endtime="20201222 17:00:15.952"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:15.946" endtime="20201222 17:00:15.952"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:15.945" endtime="20201222 17:00:15.952"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>page should contain header text</arg>
+</arguments>
+<kw name="page should contain header text" library="loginPage">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>element should be visible</arg>
+<arg>${header_text}</arg>
+<arg>message=Extenso Data Budget Operation Secured Login</arg>
+</arguments>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${header_text}</arg>
+<arg>message=Extenso Data Budget Operation Secured Login</arg>
+</arguments>
+<msg timestamp="20201222 17:00:15.975" level="INFO">Element 'id=servicedesc' is displayed.</msg>
+<status status="PASS" starttime="20201222 17:00:15.953" endtime="20201222 17:00:15.975"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:15.953" endtime="20201222 17:00:15.975"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:15.952" endtime="20201222 17:00:15.975"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:15.952" endtime="20201222 17:00:15.976"></status>
+</kw>
+<kw name="Enter valid Username" library="loginPage">
+<arguments>
+<arg>admin</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>id=username</arg>
+</arguments>
+<status status="PASS" starttime="20201222 17:00:15.976" endtime="20201222 17:00:15.994"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20201222 17:00:15.995" level="INFO">Typing text 'admin' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20201222 17:00:15.994" endtime="20201222 17:00:16.080"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:15.976" endtime="20201222 17:00:16.080"></status>
+</kw>
+<kw name="Enter valid Password" library="loginPage">
+<arguments>
+<arg>admin123</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>id=password</arg>
+</arguments>
+<status status="PASS" starttime="20201222 17:00:16.080" endtime="20201222 17:00:16.100"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20201222 17:00:16.100" level="INFO">Typing text 'admin123' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20201222 17:00:16.100" endtime="20201222 17:00:16.190"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:16.080" endtime="20201222 17:00:16.191"></status>
+</kw>
+<kw name="Click Submit" library="loginPage">
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>name=submit</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20201222 17:00:16.192" level="INFO">Sending key(s) ('RETURN',) to name=submit element.</msg>
+<msg timestamp="20201222 17:00:34.107" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20201222 17:00:34.108" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20201222 17:00:16.191" endtime="20201222 17:00:34.163"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201222 17:00:36.164" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201222 17:00:34.164" endtime="20201222 17:00:36.164"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:16.191" endtime="20201222 17:00:36.164"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:15.945" endtime="20201222 17:00:36.165"></status>
+</kw>
+<kw name="Verify that Toggle Prebudget menu is clicked" library="navigateSidebar">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//li[@id="${menu_prebudget_xpath}"]//span</arg>
+</arguments>
+<status status="PASS" starttime="20201222 17:00:36.166" endtime="20201222 17:00:36.199"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//li[@id="${menu_prebudget_xpath}"]//span</arg>
+</arguments>
+<msg timestamp="20201222 17:00:36.199" level="INFO">Clicking element 'xpath=//li[@id="prebudget"]//span'.</msg>
+<status status="PASS" starttime="20201222 17:00:36.199" endtime="20201222 17:00:36.247"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201222 17:00:38.255" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201222 17:00:36.247" endtime="20201222 17:00:38.255"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:36.165" endtime="20201222 17:00:38.255"></status>
+</kw>
+<kw name="Verify that Capex Prebudget Sidebar is clicked" library="capexPrebudget">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_3']</arg>
+<arg>timeout=10s</arg>
+</arguments>
+<status status="PASS" starttime="20201222 17:00:38.256" endtime="20201222 17:00:38.285"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_3']</arg>
+</arguments>
+<msg timestamp="20201222 17:00:38.286" level="INFO">Clicking element 'xpath=//a[@id='prebudget_3']'.</msg>
+<status status="PASS" starttime="20201222 17:00:38.285" endtime="20201222 17:00:38.592"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201222 17:00:40.601" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20201222 17:00:38.592" endtime="20201222 17:00:40.601"></status>
+</kw>
+<status status="PASS" starttime="20201222 17:00:38.256" endtime="20201222 17:00:40.601"></status>
+</kw>
+<status status="PASS" starttime="20201222 16:59:52.039" endtime="20201222 17:00:40.602" critical="yes"></status>
+</test>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="teardown">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20201222 17:00:40.604" endtime="20201222 17:00:42.784"></status>
+</kw>
+<doc>this suite verifies admin pge.</doc>
+<status status="PASS" starttime="20201222 16:59:43.648" endtime="20201222 17:00:42.784"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="T0 verify admin">T0 verify admin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
