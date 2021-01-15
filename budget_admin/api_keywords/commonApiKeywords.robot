@@ -32,3 +32,4 @@ Compare capex Land data
     log to console    ${land_api}
     Connection to Db
     Test cpx land db   ${land_api}
+    execute sql script    ${EXECDIR}/databases/cpx.sql

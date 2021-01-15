@@ -49,7 +49,7 @@ Click Add User
     wait until element is visible    ${add_button}
     click element    ${add_button}
     sleep    1s
-vaidate inputs of users name
+validate inputs of users name
     click element    ${input_name}
     input text  ${input_name}    testing1a
     sleep   1s

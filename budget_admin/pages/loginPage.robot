@@ -7,8 +7,8 @@ ${invalid_username}     ashd
 ${invalid_password}     adfbfj
 ${page_logo}            //body/main[1]/a[1]/span[1]
 
-#${url}                  https://10.13.189.56:8443/cas/login?service=https%3A%2F%2F10.13.189.56%3A8443%2Fbudget%2Flogin%2Fcas
-${url}                 https://10.13.189.8:8443/cas/login?service=https%3A%2F%2F10.13.189.8%3A8443%2Fbudget%2Flogin%2Fcas
+${url}                  https://10.13.189.56:8443/cas/login?service=https%3A%2F%2F10.13.189.56%3A8443%2Fbudget%2Flogin%2Fcas
+#${url}                 https://10.13.189.8:8443/cas/login?service=https%3A%2F%2F10.13.189.8%3A8443%2Fbudget%2Flogin%2Fcas
 
 ${header_text}          id=servicedesc
 ${message_invalid_password}     //*[@id="fm1"]/div/span

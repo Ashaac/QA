@@ -67,6 +67,7 @@ Verify Download Worksheet Template button is clicked and downloaded
     Wait Until Element Is Visible   ${download_worksheet_xpath}
     click element   ${download_worksheet_xpath}
     sleep   5s
+#    Confirmation dialogue for worksheet upload
 
 Verify that Download Excel Template button is clicked
     Download Dropdown Button
@@ -77,18 +78,24 @@ Verify that Download Excel Template button is clicked
 
 
 Verify that Upload Worksheet button is working
-    [Arguments]    ${upload_cpx}
+#    [Arguments]    ${upload_cpx}
     Download Dropdown Button
     sleep    1s
 #   Upload Button
     Wait Until Element Is Visible      ${upload_button}
     click element    ${upload_button}
     sleep   1s
+
+
+Upload file after click upload
+    [Arguments]    ${upload_cpx}
 # file gets upload
     Execute Javascript    ${file_upload_block}
-    input text  xpath=//label[@id='upload_file-chooser']//input    ${upload_cpx}
+    input text      xpath=//label[@id='upload_file-chooser']//input     ${upload_cpx}
     Execute Javascript    ${file_upload_none}
     sleep   1s
+
+
 
 Click on Upload worksheet difference tab
     click element   ${worksheet_difference_tab_xpath}
@@ -96,15 +103,6 @@ Click on Upload worksheet difference tab
 # Upload worksheet submit tab
     click element       ${worksheet_submit_tab_xpath}
     sleep   2s
-
-#    [Arguments]    ${id_step_label}
-#    click element   xpath=//mat-step-header[@id='cdk-step-label-${id_step_label}-1']
-#    sleep       1s
-## Upload worksheet submit tab
-#    click element       xpath=//mat-step-header[@id='cdk-step-label-${id_step_label}-2']
-#    sleep   2s
-
-
 
 Click on Upload submit to database
     WAIT UNTIL ELEMENT IS VISIBLE    ${submit_to_database_upload_button}
@@ -144,6 +142,7 @@ Click on Yearly tab
     sleep   2s
 
 Verify that Refresh Button prebudget is clicked
+    wait until element is not visible    //div[@id="cdk-overlay-0"]/nz-message-container/div/nz-message/div/div/div/span
     wait until element is visible   ${template_refresh}
     click element    ${template_refresh}
     sleep    2s
@@ -280,3 +279,13 @@ Download prebudget result
     click element    ${download_prebudget_result_xpath}
     sleep    2s
 
+
+#Confirmation dialogue for worksheet upload
+#    ## ok button worksheet
+#    wait until element is visible    xpath=//div[@id="cdk-overlay-3"]/div/div/div[2]/div/div/div[2]/button[2]
+#    click button    xpath=//div[@id="cdk-overlay-3"]/div/div/div[2]/div/div/div[2]/button[2]
+#    sleep    2s
+#    ## cancel button click worksheet
+##    wait until element is visible    xpath=//div[@id="cdk-overlay-3"]/div/div/div[2]/div/div/div[2]/button[1]
+##    click button    xpath=//div[@id="cdk-overlay-3"]/div/div/div[2]/div/div/div[2]/button[1]
+##    sleep    2s
