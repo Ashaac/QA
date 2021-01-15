@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20210115 11:23:06.228" rpa="false">
+<suite id="s1" name="T0 verify admin" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T0_verify_admin.robot">
+<kw name="Open Budget Application" library="loginPage" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<arg>add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors") error</arg>
+</arguments>
+<msg timestamp="20210115 11:23:06.577" level="INFO">Opening browser 'Chrome' to base url 'https://10.13.189.56:8443/cas/login?service=https%3A%2F%2F10.13.189.56%3A8443%2Fbudget%2Flogin%2Fcas'.</msg>
+<status status="PASS" starttime="20210115 11:23:06.576" endtime="20210115 11:23:10.384"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210115 11:23:10.385" endtime="20210115 11:23:12.553"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>details-button</arg>
+</arguments>
+<msg timestamp="20210115 11:23:12.553" level="INFO">Clicking button 'details-button'.</msg>
+<status status="PASS" starttime="20210115 11:23:12.553" endtime="20210115 11:23:12.622"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>proceed-link</arg>
+</arguments>
+<msg timestamp="20210115 11:23:12.623" level="INFO">Clicking element 'proceed-link'.</msg>
+<status status="PASS" starttime="20210115 11:23:12.623" endtime="20210115 11:23:19.496"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2S</arg>
+</arguments>
+<msg timestamp="20210115 11:23:21.500" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210115 11:23:19.497" endtime="20210115 11:23:21.500"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:06.576" endtime="20210115 11:23:21.501"></status>
+</kw>
+<test id="s1-t1" name="Verify that login page works properly and is authenticated">
+<kw name="Verify Login Page is successful" library="loginPage">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>title should be login</arg>
+</arguments>
+<kw name="Title should be login" library="loginPage">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>Login - CAS – Central Authentication Service</arg>
+</arguments>
+<msg timestamp="20210115 11:23:21.527" level="INFO">Page title is 'Login - CAS – Central Authentication Service'.</msg>
+<status status="PASS" starttime="20210115 11:23:21.511" endtime="20210115 11:23:21.528"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:21.510" endtime="20210115 11:23:21.528"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:21.509" endtime="20210115 11:23:21.529"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>page should contain header text</arg>
+</arguments>
+<kw name="page should contain header text" library="loginPage">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>element should be visible</arg>
+<arg>${header_text}</arg>
+<arg>message=Extenso Data Budget Operation Secured Login</arg>
+</arguments>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${header_text}</arg>
+<arg>message=Extenso Data Budget Operation Secured Login</arg>
+</arguments>
+<msg timestamp="20210115 11:23:21.572" level="INFO">Element 'id=servicedesc' is displayed.</msg>
+<status status="PASS" starttime="20210115 11:23:21.533" endtime="20210115 11:23:21.572"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:21.532" endtime="20210115 11:23:21.573"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:21.530" endtime="20210115 11:23:21.573"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:21.529" endtime="20210115 11:23:21.573"></status>
+</kw>
+<kw name="Enter valid Username" library="loginPage">
+<arguments>
+<arg>admin</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>id=username</arg>
+</arguments>
+<status status="PASS" starttime="20210115 11:23:21.573" endtime="20210115 11:23:21.596"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20210115 11:23:21.596" level="INFO">Typing text 'admin' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20210115 11:23:21.596" endtime="20210115 11:23:21.656"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:21.573" endtime="20210115 11:23:21.656"></status>
+</kw>
+<kw name="Enter valid Password" library="loginPage">
+<arguments>
+<arg>admin123</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>id=password</arg>
+</arguments>
+<status status="PASS" starttime="20210115 11:23:21.657" endtime="20210115 11:23:21.675"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20210115 11:23:21.676" level="INFO">Typing text 'admin123' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20210115 11:23:21.675" endtime="20210115 11:23:21.755"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:21.657" endtime="20210115 11:23:21.755"></status>
+</kw>
+<kw name="Click Submit" library="loginPage">
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>name=submit</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210115 11:23:21.758" level="INFO">Sending key(s) ('RETURN',) to name=submit element.</msg>
+<msg timestamp="20210115 11:23:42.191" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210115 11:23:42.191" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210115 11:23:21.756" endtime="20210115 11:23:42.320"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210115 11:23:44.328" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210115 11:23:42.321" endtime="20210115 11:23:44.329"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:21.756" endtime="20210115 11:23:44.330"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:21.507" endtime="20210115 11:23:44.331"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:21.501" endtime="20210115 11:23:44.334" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Click on assign Adhoc templates">
+<kw name="Click Budget" library="navigateSidebar">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//li[@id='budget']</arg>
+</arguments>
+<status status="PASS" starttime="20210115 11:23:44.354" endtime="20210115 11:23:44.407"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//li[@id='budget']</arg>
+</arguments>
+<msg timestamp="20210115 11:23:44.408" level="INFO">Clicking element '//li[@id='budget']'.</msg>
+<status status="PASS" starttime="20210115 11:23:44.407" endtime="20210115 11:23:44.457"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:44.352" endtime="20210115 11:23:44.458"></status>
+</kw>
+<kw name="click to adhoc templates" library="adhocTemplateAssign">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//a[@id='budget_adhoc']</arg>
+</arguments>
+<status status="PASS" starttime="20210115 11:23:44.459" endtime="20210115 11:23:44.723"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//a[@id='budget_adhoc']</arg>
+</arguments>
+<msg timestamp="20210115 11:23:44.724" level="INFO">Clicking element '//a[@id='budget_adhoc']'.</msg>
+<status status="PASS" starttime="20210115 11:23:44.724" endtime="20210115 11:23:44.836"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:44.458" endtime="20210115 11:23:44.837"></status>
+</kw>
+<kw name="click on assign adhoc" library="adhocTemplateAssign">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//button[@class='ant-btn-primary ant-btn ant-btn-default']</arg>
+</arguments>
+<status status="PASS" starttime="20210115 11:23:44.839" endtime="20210115 11:23:44.862"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[@class='ant-btn-primary ant-btn ant-btn-default']</arg>
+</arguments>
+<msg timestamp="20210115 11:23:44.862" level="INFO">Clicking element '//button[@class='ant-btn-primary ant-btn ant-btn-default']'.</msg>
+<status status="PASS" starttime="20210115 11:23:44.862" endtime="20210115 11:23:45.215"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:44.838" endtime="20210115 11:23:45.215"></status>
+</kw>
+<status status="PASS" starttime="20210115 11:23:44.348" endtime="20210115 11:23:45.216" critical="yes"></status>
+</test>
+<test id="s1-t3" name="click assign adhoc region">
+<kw name="click assign adhoc region" library="adhocTemplateAssign">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//app-assign-template/div/form/span[1]/nz-form-item[1]/nz-form-control/div/span/app-region-branch/div/nz-select[1]/div/div</arg>
+</arguments>
+<status status="PASS" starttime="20210115 11:23:45.246" endtime="20210115 11:23:45.311"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//app-assign-template/div/form/span[1]/nz-form-item[1]/nz-form-control/div/span/app-region-branch/div/nz-select[1]/div/div</arg>
+</arguments>
+<msg timestamp="20210115 11:23:45.311" level="INFO">Clicking element '//app-assign-template/div/form/span[1]/nz-form-item[1]/nz-form-control/div/span/app-region-branch/div/nz-select[1]/div/div'.</msg>
+<status status="PASS" starttime="20210115 11:23:45.311" endtime="20210115 11:23:45.403"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210115 11:23:47.405" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210115 11:23:45.404" endtime="20210115 11:23:47.406"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@id="cdk-overlay-3"]/div/div/ul/li[1]</arg>
+</arguments>
+<msg timestamp="20210115 11:23:47.409" level="INFO">Clicking element '//div[@id="cdk-overlay-3"]/div/div/ul/li[1]'.</msg>
+<status status="PASS" starttime="20210115 11:23:47.408" endtime="20210115 11:23:47.561"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//div[@id="cdk-overlay-3"]/div/div/ul/li[2]</arg>
+</arguments>
+<msg timestamp="20210115 11:23:47.561" level="INFO">Clicking element '//div[@id="cdk-overlay-3"]/div/div/ul/li[2]'.</msg>
+<status status="PASS" starttime="20210115 11:23:47.561" endtime="20210115 11:23:47.616"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210115 11:23:49.619" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210115 11:23:47.617" endtime="20210115 11:23:49.620"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//app-assign-template/div/form/span[1]/nz-form-item[1]/nz-form-control/div/span/app-region-branch/div/nz-select[1]/div/div</arg>
+<arg>region 2</arg>
+</arguments>
+<msg timestamp="20210115 11:23:49.622" level="INFO">Typing text 'region 2' into text field 'xpath=//app-assign-template/div/form/span[1]/nz-form-item[1]/nz-form-control/div/span/app-region-branch/div/nz-select[1]/div/div'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210115 11:23:50.064" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210115 11:23:49.687" endtime="20210115 11:23:50.064"></status>
+</kw>
+<msg timestamp="20210115 11:23:50.066" level="FAIL">InvalidElementStateException: Message: invalid element state
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210115 11:23:49.621" endtime="20210115 11:23:50.066"></status>
+</kw>
+<status status="FAIL" starttime="20210115 11:23:45.246" endtime="20210115 11:23:50.066"></status>
+</kw>
+<status status="FAIL" starttime="20210115 11:23:45.245" endtime="20210115 11:23:50.067" critical="yes">InvalidElementStateException: Message: invalid element state
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<doc>this suite verifies admin pge.</doc>
+<status status="FAIL" starttime="20210115 11:23:06.230" endtime="20210115 11:23:50.069"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="1">Critical Tests</stat>
+<stat pass="2" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="1" id="s1" name="T0 verify admin">T0 verify admin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
