@@ -1,0 +1,1437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20210119 12:18:07.496" rpa="false">
+<suite id="s1" name="T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget &amp; T6 simulation after prebudget">
+<suite id="s1-s1" name="T0 verify admin" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T0_verify_admin.robot">
+<kw name="Open Budget Application" library="loginPage" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<arg>add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors") error</arg>
+</arguments>
+<msg timestamp="20210119 12:18:07.935" level="INFO">Opening browser 'Chrome' to base url 'https://10.13.189.56:8443/cas/login?service=https%3A%2F%2F10.13.189.56%3A8443%2Fbudget%2Flogin%2Fcas'.</msg>
+<status status="PASS" starttime="20210119 12:18:07.934" endtime="20210119 12:18:15.825"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210119 12:18:15.825" endtime="20210119 12:18:17.984"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>details-button</arg>
+</arguments>
+<msg timestamp="20210119 12:18:17.985" level="INFO">Clicking button 'details-button'.</msg>
+<status status="PASS" starttime="20210119 12:18:17.985" endtime="20210119 12:18:18.067"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>proceed-link</arg>
+</arguments>
+<msg timestamp="20210119 12:18:18.068" level="INFO">Clicking element 'proceed-link'.</msg>
+<status status="PASS" starttime="20210119 12:18:18.067" endtime="20210119 12:18:51.751"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2S</arg>
+</arguments>
+<msg timestamp="20210119 12:18:53.759" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:18:51.751" endtime="20210119 12:18:53.760"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:18:07.934" endtime="20210119 12:18:53.760"></status>
+</kw>
+<test id="s1-s1-t1" name="Verify that login page works properly and is authenticated">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify Login Page is successful</arg>
+</arguments>
+<kw name="Verify Login Page is successful" library="loginPage">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>title should be login</arg>
+</arguments>
+<kw name="Title should be login" library="loginPage">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>Login - CAS – Central Authentication Service</arg>
+</arguments>
+<msg timestamp="20210119 12:18:53.768" level="INFO">Page title is 'Login - CAS – Central Authentication Service'.</msg>
+<status status="PASS" starttime="20210119 12:18:53.763" endtime="20210119 12:18:53.768"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:18:53.762" endtime="20210119 12:18:53.768"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:18:53.762" endtime="20210119 12:18:53.768"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>page should contain header text</arg>
+</arguments>
+<kw name="page should contain header text" library="loginPage">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>element should be visible</arg>
+<arg>${header_text}</arg>
+<arg>message=Extenso Data Budget Operation Secured Login</arg>
+</arguments>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${header_text}</arg>
+<arg>message=Extenso Data Budget Operation Secured Login</arg>
+</arguments>
+<msg timestamp="20210119 12:18:53.796" level="INFO">Element 'id=servicedesc' is displayed.</msg>
+<status status="PASS" starttime="20210119 12:18:53.769" endtime="20210119 12:18:53.796"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:18:53.769" endtime="20210119 12:18:53.796"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:18:53.768" endtime="20210119 12:18:53.796"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:18:53.768" endtime="20210119 12:18:53.796"></status>
+</kw>
+<kw name="Enter valid Username" library="loginPage">
+<arguments>
+<arg>admin</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>id=username</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:18:53.797" endtime="20210119 12:18:53.823"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20210119 12:18:53.823" level="INFO">Typing text 'admin' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20210119 12:18:53.823" endtime="20210119 12:18:53.899"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:18:53.796" endtime="20210119 12:18:53.899"></status>
+</kw>
+<kw name="Enter valid Password" library="loginPage">
+<arguments>
+<arg>admin123</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>id=password</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:18:53.900" endtime="20210119 12:18:53.922"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20210119 12:18:53.922" level="INFO">Typing text 'admin123' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20210119 12:18:53.922" endtime="20210119 12:18:54.015"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:18:53.899" endtime="20210119 12:18:54.015"></status>
+</kw>
+<kw name="Click Submit" library="loginPage">
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>name=submit</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210119 12:18:54.017" level="INFO">Sending key(s) ('RETURN',) to name=submit element.</msg>
+<msg timestamp="20210119 12:19:17.968" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210119 12:19:17.968" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210119 12:18:54.016" endtime="20210119 12:19:17.984"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:19.993" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:17.984" endtime="20210119 12:19:19.993"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:18:54.016" endtime="20210119 12:19:19.993"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:18:53.762" endtime="20210119 12:19:19.993"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:18:53.762" endtime="20210119 12:19:19.994"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:18:53.760" endtime="20210119 12:19:19.994" critical="yes"></status>
+</test>
+<doc>this suite verifies admin pge.</doc>
+<status status="PASS" starttime="20210119 12:18:07.530" endtime="20210119 12:19:19.996"></status>
+</suite>
+<suite id="s1-s2" name="T1 user management" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T1_user_management.robot">
+<test id="s1-s2-t1" name="Verify User Add">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Click on User Management</arg>
+</arguments>
+<kw name="Click on User Management" library="userManagementPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${toggle_usermanagement_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:20.018" endtime="20210119 12:19:20.049"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${toggle_usermanagement_xpath}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:20.050" level="INFO">Clicking element '//li[@id='user']//div'.</msg>
+<status status="PASS" starttime="20210119 12:19:20.049" endtime="20210119 12:19:20.105"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:23.112" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:20.105" endtime="20210119 12:19:23.112"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:20.017" endtime="20210119 12:19:23.112"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:20.017" endtime="20210119 12:19:23.112"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Click Users</arg>
+</arguments>
+<kw name="Click Users" library="userManagementPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${click_users_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:23.114" endtime="20210119 12:19:23.140"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${click_users_xpath}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:23.141" level="INFO">Clicking element '//li//a[@id='user_info']'.</msg>
+<status status="PASS" starttime="20210119 12:19:23.140" endtime="20210119 12:19:23.286"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:26.292" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:23.286" endtime="20210119 12:19:26.292"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:23.113" endtime="20210119 12:19:26.293"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:23.113" endtime="20210119 12:19:26.293"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:20.016" endtime="20210119 12:19:26.294" critical="yes"></status>
+</test>
+<doc>this suite verifies User Management page.</doc>
+<status status="PASS" starttime="20210119 12:19:19.999" endtime="20210119 12:19:26.295"></status>
+</suite>
+<suite id="s1-s3" name="T1 verify capex prebudget" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T1_verify_capex_prebudget.robot">
+<test id="s1-s3-t1" name="Verify Capex Prebudget">
+<kw name="Click on Prebudget menu" library="navigateSidebar">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//li[@id="${menu_prebudget_xpath}"]//span</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:26.321" endtime="20210119 12:19:26.344"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//li[@id="${menu_prebudget_xpath}"]//span</arg>
+</arguments>
+<msg timestamp="20210119 12:19:26.345" level="INFO">Clicking element 'xpath=//li[@id="prebudget"]//span'.</msg>
+<status status="PASS" starttime="20210119 12:19:26.345" endtime="20210119 12:19:26.453"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:28.468" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:26.453" endtime="20210119 12:19:28.468"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:26.321" endtime="20210119 12:19:28.468"></status>
+</kw>
+<kw name="Click Capex Prebudget Sidebar" library="capexPrebudget">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_3']</arg>
+<arg>timeout=10s</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:28.470" endtime="20210119 12:19:28.497"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_3']</arg>
+</arguments>
+<msg timestamp="20210119 12:19:28.497" level="INFO">Clicking element 'xpath=//a[@id='prebudget_3']'.</msg>
+<status status="PASS" starttime="20210119 12:19:28.497" endtime="20210119 12:19:28.893"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:30.909" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:28.894" endtime="20210119 12:19:30.909"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:28.470" endtime="20210119 12:19:30.910"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:26.320" endtime="20210119 12:19:30.911" critical="yes"></status>
+</test>
+<doc>this suite verifies Capex page.</doc>
+<status status="PASS" starttime="20210119 12:19:26.298" endtime="20210119 12:19:30.913"></status>
+</suite>
+<suite id="s1-s4" name="T2 verify hr prebudget" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T2_verify_hr_prebudget.robot">
+<test id="s1-s4-t1" name="Verify Hr Prebudget">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify that hr Prebudget Sidebar is clicked</arg>
+</arguments>
+<kw name="Verify that hr Prebudget Sidebar is clicked" library="hrPrebudget">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_4']</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:30.936" endtime="20210119 12:19:30.959"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_4']</arg>
+</arguments>
+<msg timestamp="20210119 12:19:30.959" level="INFO">Clicking element 'xpath=//a[@id='prebudget_4']'.</msg>
+<status status="PASS" starttime="20210119 12:19:30.959" endtime="20210119 12:19:31.274"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:33.285" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:31.275" endtime="20210119 12:19:33.285"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:30.935" endtime="20210119 12:19:33.285"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:30.935" endtime="20210119 12:19:33.285"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:30.934" endtime="20210119 12:19:33.286" critical="yes"></status>
+</test>
+<doc>this suite verifies hr page.</doc>
+<status status="PASS" starttime="20210119 12:19:30.919" endtime="20210119 12:19:33.287"></status>
+</suite>
+<suite id="s1-s5" name="T3 verify activity prebudget" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T3_verify_activity_prebudget.robot">
+<test id="s1-s5-t1" name="Verify that Activity Based Prebudget Sidebar is clicked">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify that Activity Based Prebudget Sidebar is clicked</arg>
+</arguments>
+<kw name="Verify that Activity Based Prebudget Sidebar is clicked" library="activityPrebudget">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_5']</arg>
+<arg>timeout=10s</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:33.304" endtime="20210119 12:19:33.328"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_5']</arg>
+</arguments>
+<msg timestamp="20210119 12:19:33.329" level="INFO">Clicking element 'xpath=//a[@id='prebudget_5']'.</msg>
+<status status="PASS" starttime="20210119 12:19:33.328" endtime="20210119 12:19:33.547"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:35.551" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:33.547" endtime="20210119 12:19:35.551"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:33.304" endtime="20210119 12:19:35.551"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:33.303" endtime="20210119 12:19:35.551"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:33.303" endtime="20210119 12:19:35.552" critical="yes"></status>
+</test>
+<doc>this suite verifies Capex page.</doc>
+<status status="PASS" starttime="20210119 12:19:33.290" endtime="20210119 12:19:35.553"></status>
+</suite>
+<suite id="s1-s6" name="T4 verify bs prebudget" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T4_verify_bs_prebudget.robot">
+<test id="s1-s6-t1" name="Verify that BalanceSheet Prebudget Sidebar is clicked">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify that Balance Sheet Prebudget Sidebar is clicked</arg>
+</arguments>
+<kw name="Verify that Balance Sheet Prebudget Sidebar is clicked" library="balanceSheetPrebudget">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_1']</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:35.572" endtime="20210119 12:19:35.595"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_1']</arg>
+</arguments>
+<msg timestamp="20210119 12:19:35.595" level="INFO">Clicking element 'xpath=//a[@id='prebudget_1']'.</msg>
+<status status="PASS" starttime="20210119 12:19:35.595" endtime="20210119 12:19:35.773"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:37.789" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:35.774" endtime="20210119 12:19:37.789"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:35.572" endtime="20210119 12:19:37.790"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:35.569" endtime="20210119 12:19:37.790"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:35.566" endtime="20210119 12:19:37.791" critical="yes"></status>
+</test>
+<doc>this suite verifies Capex page.</doc>
+<status status="PASS" starttime="20210119 12:19:35.556" endtime="20210119 12:19:37.795"></status>
+</suite>
+<suite id="s1-s7" name="T5 verify profitloss prebudget" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T5_verify_profitloss_prebudget.robot">
+<test id="s1-s7-t1" name="Verify that ProfitLoss Prebudget Sidebar is clicked">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify that Profit Loss Prebudget Sidebar is clicked</arg>
+</arguments>
+<kw name="Verify that Profit Loss Prebudget Sidebar is clicked" library="profitLossPrebudget">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_2']</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:37.818" endtime="20210119 12:19:37.844"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//a[@id='${menu_name_xpath}_2']</arg>
+</arguments>
+<msg timestamp="20210119 12:19:37.844" level="INFO">Clicking element 'xpath=//a[@id='prebudget_2']'.</msg>
+<status status="PASS" starttime="20210119 12:19:37.844" endtime="20210119 12:19:38.025"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:40.038" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:38.025" endtime="20210119 12:19:40.038"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:37.818" endtime="20210119 12:19:40.039"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:37.817" endtime="20210119 12:19:40.039"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:37.817" endtime="20210119 12:19:40.040" critical="yes"></status>
+</test>
+<test id="s1-s7-t2" name="Verify Download Worksheet Template button is clicked and downloaded">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify Download Worksheet Template button is clicked and downloaded</arg>
+</arguments>
+<kw name="Verify Download Worksheet Template button is clicked and downloaded" library="templateButtonPage">
+<kw name="Download Dropdown Button" library="templateButtonPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${download_dropdown}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:40.046" endtime="20210119 12:19:40.069"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${download_dropdown}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:40.070" level="INFO">Clicking element '//span[@class='ant-dropdown-trigger']//i'.</msg>
+<status status="PASS" starttime="20210119 12:19:40.069" endtime="20210119 12:19:40.189"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:41.192" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210119 12:19:40.189" endtime="20210119 12:19:41.192"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:40.046" endtime="20210119 12:19:41.192"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:43.195" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:41.193" endtime="20210119 12:19:43.196"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${download_worksheet_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:43.196" endtime="20210119 12:19:43.219"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${download_worksheet_xpath}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:43.220" level="INFO">Clicking element '//app-download-worksheet[@id='download_worksheet_btn']'.</msg>
+<status status="PASS" starttime="20210119 12:19:43.219" endtime="20210119 12:19:43.286"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:48.292" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:43.286" endtime="20210119 12:19:48.293"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:40.045" endtime="20210119 12:19:48.293"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:40.045" endtime="20210119 12:19:48.293"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:40.043" endtime="20210119 12:19:48.294" critical="yes"></status>
+</test>
+<test id="s1-s7-t3" name="Verify that Download Excel Template button is clicked">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify that Download Excel Template button is clicked</arg>
+</arguments>
+<kw name="Verify that Download Excel Template button is clicked" library="templateButtonPage">
+<kw name="Download Dropdown Button" library="templateButtonPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${download_dropdown}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:48.297" endtime="20210119 12:19:48.315"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${download_dropdown}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:48.315" level="INFO">Clicking element '//span[@class='ant-dropdown-trigger']//i'.</msg>
+<status status="PASS" starttime="20210119 12:19:48.315" endtime="20210119 12:19:48.374"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:49.383" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210119 12:19:48.374" endtime="20210119 12:19:49.383"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:48.296" endtime="20210119 12:19:49.384"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:51.397" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:49.384" endtime="20210119 12:19:51.397"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${download_excel_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:51.397" endtime="20210119 12:19:51.420"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${download_excel_xpath}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:51.420" level="INFO">Clicking element '//li[@id='download_template_btn']'.</msg>
+<status status="PASS" starttime="20210119 12:19:51.420" endtime="20210119 12:19:51.471"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:53.473" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:51.471" endtime="20210119 12:19:53.473"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:48.296" endtime="20210119 12:19:53.473"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:48.296" endtime="20210119 12:19:53.473"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:48.295" endtime="20210119 12:19:53.475" critical="yes"></status>
+</test>
+<test id="s1-s7-t4" name="Verify that Upload Worksheet button is working">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify that Upload Worksheet button is working</arg>
+</arguments>
+<kw name="Verify that Upload Worksheet button is working" library="templateButtonPage">
+<kw name="Download Dropdown Button" library="templateButtonPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${download_dropdown}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:53.490" endtime="20210119 12:19:53.512"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${download_dropdown}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:53.512" level="INFO">Clicking element '//span[@class='ant-dropdown-trigger']//i'.</msg>
+<status status="PASS" starttime="20210119 12:19:53.512" endtime="20210119 12:19:53.555"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:54.565" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210119 12:19:53.556" endtime="20210119 12:19:54.565"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:53.489" endtime="20210119 12:19:54.566"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:55.579" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210119 12:19:54.566" endtime="20210119 12:19:55.579"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${upload_button}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:55.580" endtime="20210119 12:19:55.600"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${upload_button}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:55.602" level="INFO">Clicking element '//app-upload-template[@id='upload_worksheet_btn']'.</msg>
+<status status="PASS" starttime="20210119 12:19:55.601" endtime="20210119 12:19:55.894"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:56.910" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210119 12:19:55.894" endtime="20210119 12:19:56.910"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:53.489" endtime="20210119 12:19:56.911"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:53.488" endtime="20210119 12:19:56.911"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:53.485" endtime="20210119 12:19:56.911" critical="yes"></status>
+</test>
+<test id="s1-s7-t5" name="Upload file after click upload">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Upload file after click upload</arg>
+<arg>E://for_branch_999//pl.xlsx</arg>
+</arguments>
+<kw name="Upload file after click upload" library="templateButtonPage">
+<arguments>
+<arg>E://for_branch_999//pl.xlsx</arg>
+</arguments>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>${file_upload_block}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:56.915" level="INFO">Executing JavaScript:
+document.getElementById('upload_file-chooser').getElementsByTagName('input')[0].style.display='block'
+Without any arguments.</msg>
+<status status="PASS" starttime="20210119 12:19:56.914" endtime="20210119 12:19:56.922"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//label[@id='upload_file-chooser']//input</arg>
+<arg>${upload_cpx}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:56.923" level="INFO">Typing text 'E://for_branch_999//pl.xlsx' into text field 'xpath=//label[@id='upload_file-chooser']//input'.</msg>
+<status status="PASS" starttime="20210119 12:19:56.922" endtime="20210119 12:19:57.010"></status>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>${file_upload_none}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:57.013" level="INFO">Executing JavaScript:
+document.getElementById('upload_file-chooser').getElementsByTagName('input')[0].style.display='none'
+Without any arguments.</msg>
+<status status="PASS" starttime="20210119 12:19:57.010" endtime="20210119 12:19:57.191"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:58.197" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210119 12:19:57.191" endtime="20210119 12:19:58.197"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:56.914" endtime="20210119 12:19:58.197"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:56.913" endtime="20210119 12:19:58.197"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:56.913" endtime="20210119 12:19:58.198" critical="yes"></status>
+</test>
+<test id="s1-s7-t6" name="Click on Upload worksheet difference tab">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Click on Upload worksheet difference tab</arg>
+</arguments>
+<kw name="Click on Upload worksheet difference tab" library="templateButtonPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${worksheet_difference_tab_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:19:58.202" endtime="20210119 12:19:58.234"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${worksheet_difference_tab_xpath}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:58.235" level="INFO">Clicking element '//app-upload-worksheet/div/mat-horizontal-stepper/div[1]/mat-step-header[2]/div[3]'.</msg>
+<status status="PASS" starttime="20210119 12:19:58.235" endtime="20210119 12:19:58.357"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20210119 12:19:59.368" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210119 12:19:58.357" endtime="20210119 12:19:59.368"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${worksheet_submit_tab_xpath}</arg>
+</arguments>
+<msg timestamp="20210119 12:19:59.369" level="INFO">Clicking element '//app-upload-worksheet/div/mat-horizontal-stepper/div[1]/mat-step-header[3]'.</msg>
+<status status="PASS" starttime="20210119 12:19:59.368" endtime="20210119 12:19:59.483"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:20:01.497" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:19:59.483" endtime="20210119 12:20:01.497"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:58.201" endtime="20210119 12:20:01.497"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:58.201" endtime="20210119 12:20:01.497"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:19:58.200" endtime="20210119 12:20:01.498" critical="yes"></status>
+</test>
+<test id="s1-s7-t7" name="Click on Upload submit to database">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Click on Upload submit to database</arg>
+</arguments>
+<kw name="Click on Upload submit to database" library="templateButtonPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${submit_to_database_upload_button}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:20:01.503" endtime="20210119 12:20:01.527"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${submit_to_database_upload_button}</arg>
+</arguments>
+<msg timestamp="20210119 12:20:01.528" level="INFO">Clicking element '//mat-horizontal-stepper//button//span'.</msg>
+<status status="PASS" starttime="20210119 12:20:01.527" endtime="20210119 12:20:01.649"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:20:03.654" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:20:01.649" endtime="20210119 12:20:03.654"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${notify_after_upload}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:20:03.654" endtime="20210119 12:20:03.684"></status>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>${backdrop_click}</arg>
+</arguments>
+<msg timestamp="20210119 12:20:03.686" level="INFO">Executing JavaScript:
+document.getElementsByClassName('cdk-overlay-backdrop')[0].click()
+Without any arguments.</msg>
+<status status="PASS" starttime="20210119 12:20:03.684" endtime="20210119 12:20:03.738"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20210119 12:20:04.743" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210119 12:20:03.739" endtime="20210119 12:20:04.744"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:01.503" endtime="20210119 12:20:04.744"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:01.503" endtime="20210119 12:20:04.744"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:01.502" endtime="20210119 12:20:04.745" critical="yes"></status>
+</test>
+<test id="s1-s7-t8" name="Verify that Refresh Button prebudget is clicked">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify that Refresh Button prebudget is clicked</arg>
+</arguments>
+<kw name="Verify that Refresh Button prebudget is clicked" library="templateButtonPage">
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${notify_after_upload}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:20:04.750" endtime="20210119 12:20:04.764"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${template_refresh}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:20:04.765" endtime="20210119 12:20:04.795"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${template_refresh}</arg>
+</arguments>
+<msg timestamp="20210119 12:20:04.795" level="INFO">Clicking element '//i[@id='template_refresh_btn']'.</msg>
+<status status="PASS" starttime="20210119 12:20:04.795" endtime="20210119 12:20:04.959"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:20:06.969" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:20:04.959" endtime="20210119 12:20:06.969"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:04.749" endtime="20210119 12:20:06.970"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:04.749" endtime="20210119 12:20:06.970"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:04.747" endtime="20210119 12:20:06.973" critical="yes"></status>
+</test>
+<test id="s1-s7-t9" name="Click on Monthly tab">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Click on Monthly tab</arg>
+<arg>2</arg>
+</arguments>
+<kw name="Click on Monthly tab" library="templateButtonPage">
+<arguments>
+<arg>2</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//button[@id='month_view_tab_${template_id}']</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:20:06.990" endtime="20210119 12:20:07.039"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[@id='month_view_tab_${template_id}']</arg>
+</arguments>
+<msg timestamp="20210119 12:20:07.040" level="INFO">Clicking element '//button[@id='month_view_tab_2']'.</msg>
+<status status="PASS" starttime="20210119 12:20:07.039" endtime="20210119 12:20:08.169"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:20:10.171" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:20:08.169" endtime="20210119 12:20:10.171"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:06.989" endtime="20210119 12:20:10.171"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:06.989" endtime="20210119 12:20:10.171"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:06.988" endtime="20210119 12:20:10.172" critical="yes"></status>
+</test>
+<test id="s1-s7-t10" name="Click on Yearly tab">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Click on Yearly tab</arg>
+<arg>2</arg>
+</arguments>
+<kw name="Click on Yearly tab" library="templateButtonPage">
+<arguments>
+<arg>2</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//button[@id='year_view_tab_${template_id}']</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:20:10.178" endtime="20210119 12:20:10.218"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[@id='year_view_tab_${template_id}']</arg>
+</arguments>
+<msg timestamp="20210119 12:20:10.219" level="INFO">Clicking element '//button[@id='year_view_tab_2']'.</msg>
+<status status="PASS" starttime="20210119 12:20:10.218" endtime="20210119 12:20:11.339"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:20:13.341" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:20:11.339" endtime="20210119 12:20:13.341"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:10.177" endtime="20210119 12:20:13.341"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:10.177" endtime="20210119 12:20:13.341"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:10.176" endtime="20210119 12:20:13.343" critical="yes"></status>
+</test>
+<doc>this suite verifies Capex page.</doc>
+<status status="PASS" starttime="20210119 12:19:37.799" endtime="20210119 12:20:13.346"></status>
+</suite>
+<suite id="s1-s8" name="T6 simulation after prebudget" source="E:\QA automation\Budget-Automation\budget_admin\test_suites\T6_simulation_after_prebudget.robot">
+<test id="s1-s8-t1" name="Click on Simulation Button Template">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Click on Simulation Button Template</arg>
+</arguments>
+<kw name="Click on Simulation Button Template" library="templateButtonPage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:20:15.397" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:20:13.382" endtime="20210119 12:20:15.397"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${simulation_button}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:20:15.397" endtime="20210119 12:20:15.440"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${simulation_button}</arg>
+</arguments>
+<msg timestamp="20210119 12:20:15.440" level="INFO">Clicking element '//span//i[@id='simulation_dialog_btn']'.</msg>
+<status status="PASS" starttime="20210119 12:20:15.440" endtime="20210119 12:20:15.605"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20210119 12:20:20.607" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210119 12:20:15.605" endtime="20210119 12:20:20.607"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:13.381" endtime="20210119 12:20:20.607"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:13.380" endtime="20210119 12:20:20.607"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:13.379" endtime="20210119 12:20:20.610" critical="yes"></status>
+</test>
+<test id="s1-s8-t2" name="click Yes for simulation template">
+<kw name="click Yes for simulation template" library="templateButtonPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${yes_simulation_button}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:20:20.614" endtime="20210119 12:20:20.658"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${yes_simulation_button}</arg>
+</arguments>
+<msg timestamp="20210119 12:20:20.659" level="INFO">Clicking element '//button[@id='confirm_save']//span'.</msg>
+<status status="PASS" starttime="20210119 12:20:20.659" endtime="20210119 12:20:20.886"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210119 12:20:22.899" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210119 12:20:20.887" endtime="20210119 12:20:22.901"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:20.614" endtime="20210119 12:20:22.901"></status>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns the number of elements matching ``locator``.</doc>
+<arguments>
+<arg>xpath=//li[@id="prebudget"]//span</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20210119 12:20:22.946" level="INFO">${count} = 0</msg>
+<status status="PASS" starttime="20210119 12:20:22.905" endtime="20210119 12:20:22.946"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${count} &gt; 0</arg>
+<arg>Click rules simulation</arg>
+<arg>${rule}</arg>
+</arguments>
+<status status="PASS" starttime="20210119 12:20:22.948" endtime="20210119 12:20:22.949"></status>
+</kw>
+<status status="PASS" starttime="20210119 12:20:20.613" endtime="20210119 12:20:22.961" critical="yes"></status>
+</test>
+<test id="s1-s8-t3" name="Click on Activity Monitoring">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Click on Activity Monitoring</arg>
+</arguments>
+<kw name="Click on Activity Monitoring" library="navigateSidebar">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${actiivity_monitoring_section_click_xpath}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210119 12:20:23.025" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:22.999" endtime="20210119 12:20:23.025"></status>
+</kw>
+<msg timestamp="20210119 12:20:23.025" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.029" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:22.976" endtime="20210119 12:20:23.029"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:22.976" endtime="20210119 12:20:23.030"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:22.975" endtime="20210119 12:20:23.030"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:22.973" endtime="20210119 12:20:23.030" critical="yes">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<test id="s1-s8-t4" name="click to Execution log">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Execution log</arg>
+</arguments>
+<kw name="Execution log" library="navigateSidebar">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${execution_log_click_xpath}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210119 12:20:23.059" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.044" endtime="20210119 12:20:23.060"></status>
+</kw>
+<msg timestamp="20210119 12:20:23.060" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.062" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.036" endtime="20210119 12:20:23.062"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.036" endtime="20210119 12:20:23.062"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.035" endtime="20210119 12:20:23.062"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.034" endtime="20210119 12:20:23.064" critical="yes">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<test id="s1-s8-t5" name="Approve click simulation">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Approve click simulation</arg>
+</arguments>
+<kw name="Approve click simulation" library="templateButtonPage">
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${approve_button_unitl_complete_execution_log_xpath}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210119 12:20:23.088" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.074" endtime="20210119 12:20:23.088"></status>
+</kw>
+<msg timestamp="20210119 12:20:23.088" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.091" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.069" endtime="20210119 12:20:23.091"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.069" endtime="20210119 12:20:23.091"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.068" endtime="20210119 12:20:23.091"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.067" endtime="20210119 12:20:23.092" critical="yes">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<test id="s1-s8-t6" name="Click on Cancel approve simulation">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Cancel approve simulation</arg>
+</arguments>
+<kw name="Cancel approve simulation" library="templateButtonPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${cancel_simulation_inside_execution_log_xpath}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210119 12:20:23.118" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.098" endtime="20210119 12:20:23.118"></status>
+</kw>
+<msg timestamp="20210119 12:20:23.119" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.120" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.096" endtime="20210119 12:20:23.121"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.095" endtime="20210119 12:20:23.121"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.094" endtime="20210119 12:20:23.121"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.093" endtime="20210119 12:20:23.122" critical="yes">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<test id="s1-s8-t7" name="Download prebudget result">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Download prebudget result</arg>
+</arguments>
+<kw name="Download prebudget result" library="templateButtonPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${download_prebudget_result_xpath}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210119 12:20:23.137" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.129" endtime="20210119 12:20:23.138"></status>
+</kw>
+<msg timestamp="20210119 12:20:23.138" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.140" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.127" endtime="20210119 12:20:23.141"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.126" endtime="20210119 12:20:23.141"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.126" endtime="20210119 12:20:23.141"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.123" endtime="20210119 12:20:23.142" critical="yes">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<test id="s1-s8-t8" name="Click on Activity Monitoring">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Click on Activity Monitoring</arg>
+</arguments>
+<kw name="Click on Activity Monitoring" library="navigateSidebar">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${actiivity_monitoring_section_click_xpath}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210119 12:20:23.157" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.150" endtime="20210119 12:20:23.157"></status>
+</kw>
+<msg timestamp="20210119 12:20:23.158" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.159" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.146" endtime="20210119 12:20:23.160"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.146" endtime="20210119 12:20:23.160"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.145" endtime="20210119 12:20:23.160"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.144" endtime="20210119 12:20:23.161" critical="yes">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<test id="s1-s8-t9" name="Template log">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Template log</arg>
+</arguments>
+<kw name="Template log" library="navigateSidebar">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Click on Activity Monitoring</arg>
+</arguments>
+<kw name="Click on Activity Monitoring" library="navigateSidebar">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${actiivity_monitoring_section_click_xpath}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210119 12:20:23.177" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.169" endtime="20210119 12:20:23.177"></status>
+</kw>
+<msg timestamp="20210119 12:20:23.177" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.180" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.166" endtime="20210119 12:20:23.180"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.165" endtime="20210119 12:20:23.180"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.165" endtime="20210119 12:20:23.180"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${click_template_log_xpath}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210119 12:20:23.192" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.184" endtime="20210119 12:20:23.192"></status>
+</kw>
+<msg timestamp="20210119 12:20:23.192" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.194" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<status status="FAIL" starttime="20210119 12:20:23.180" endtime="20210119 12:20:23.195"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.164" endtime="20210119 12:20:23.195"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.163" endtime="20210119 12:20:23.195"></status>
+</kw>
+<status status="FAIL" starttime="20210119 12:20:23.162" endtime="20210119 12:20:23.196" critical="yes">Several failures occurred:
+
+1) NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+
+
+2) NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</status>
+</test>
+<doc>this suite verifies simulation page.</doc>
+<status status="FAIL" starttime="20210119 12:20:13.361" endtime="20210119 12:20:23.198"></status>
+</suite>
+<status status="FAIL" starttime="20210119 12:18:07.499" endtime="20210119 12:20:23.210"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="18" fail="7">Critical Tests</stat>
+<stat pass="18" fail="7">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="18" fail="7" id="s1" name="T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget &amp; T6 simulation after prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget &amp; T6 simulation after prebudget</stat>
+<stat pass="1" fail="0" id="s1-s1" name="T0 verify admin">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget &amp; T6 simulation after prebudget.T0 verify admin</stat>
+<stat pass="1" fail="0" id="s1-s2" name="T1 user management">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget &amp; T6 simulation after prebudget.T1 user management</stat>
+<stat pass="1" fail="0" id="s1-s3" name="T1 verify capex prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget &amp; T6 simulation after prebudget.T1 verify capex prebudget</stat>
+<stat pass="1" fail="0" id="s1-s4" name="T2 verify hr prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget &amp; T6 simulation after prebudget.T2 verify hr prebudget</stat>
+<stat pass="1" fail="0" id="s1-s5" name="T3 verify activity prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget &amp; T6 simulation after prebudget.T3 verify activity prebudget</stat>
+<stat pass="1" fail="0" id="s1-s6" name="T4 verify bs prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget &amp; T6 simulation after prebudget.T4 verify bs prebudget</stat>
+<stat pass="10" fail="0" id="s1-s7" name="T5 verify profitloss prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget &amp; T6 simulation after prebudget.T5 verify profitloss prebudget</stat>
+<stat pass="2" fail="7" id="s1-s8" name="T6 simulation after prebudget">T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget &amp; T6 simulation after prebudget.T6 simulation after prebudget</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210119 12:20:23.025" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.060" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.088" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.119" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.138" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.144" level="WARN">Multiple test cases with name 'Click on Activity Monitoring' executed in test suite 'T0 verify admin &amp; T1 user management &amp; T1 verify capex prebudget &amp; T2 verify hr prebudget &amp; T3 verify activity prebudget &amp; T4 verify bs prebudget &amp; T5 verify profitloss prebudget &amp; T6 simulation after prebudget.T6 simulation after prebudget'.</msg>
+<msg timestamp="20210119 12:20:23.158" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.177" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+<msg timestamp="20210119 12:20:23.192" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=87.0.4280.88)
+</msg>
+</errors>
+</robot>

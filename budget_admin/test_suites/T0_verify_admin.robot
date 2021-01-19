@@ -27,7 +27,7 @@ Suite Setup    Open Budget Application
 *** Test Cases ***
 Verify that login page works properly and is authenticated
     #run keyword and continue on failure    Verify Invalid Login
-    Verify Login Page is successful
+    run keyword and continue on failure    Verify Login Page is successful
 Click on assign Adhoc templates
     Click Budget
     click to adhoc templates

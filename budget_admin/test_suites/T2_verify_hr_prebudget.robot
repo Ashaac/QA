@@ -8,33 +8,32 @@ Resource    ../pages/templateButtonPage.robot
 *** Test Cases ***
 
 Verify Hr Prebudget
-    Verify that hr Prebudget Sidebar is clicked
-
+    run keyword and continue on failure    Verify that hr Prebudget Sidebar is clicked
+#
 #Verify HR Download Worksheet Template button is clicked and downloaded
-#    Verify Download Worksheet Template button is clicked and downloaded
+#    run keyword and continue on failure    Verify Download Worksheet Template button is clicked and downloaded
 #
 #Verify that HR Download Excel Template button is clicked
-#    Verify that Download Excel Template button is clicked
+#    run keyword and continue on failure    Verify that Download Excel Template button is clicked
 #
 #Verify that HR Upload Worksheet button is working
-#    Verify that Upload Worksheet button is working
+#    run keyword and continue on failure    Verify that Upload Worksheet button is working
 #
 #Upload HR file after click upload
-#    Upload file after click upload         E://for_branch_999//hr.xlsx
+#    run keyword and continue on failure    Upload file after click upload         E://for_branch_999//hr.xlsx
 #
 #Click on HR Upload worksheet difference tab
-#    Click on Upload worksheet difference tab
+#    run keyword and continue on failure    Click on Upload worksheet difference tab
 #
 #Click on HR Upload submit to database
-#    Click on Upload submit to database
+#    run keyword and continue on failure    Click on Upload submit to database
 #
 #Verify that HR Refresh Button prebudget is clicked
-#    Verify that Refresh Button prebudget is clicked
+#    run keyword and continue on failure    Verify that Refresh Button prebudget is clicked
 #
 #Click on HR Monthly tab
-#    Click on Monthly tab    4
+#    run keyword and continue on failure    Click on Monthly tab    4
 #
 #Click on HR Yearly tab
-#    Click on Yearly tab     4
-
-##    Confirmation dialogue for worksheet upload
+#    run keyword and continue on failure    Click on Yearly tab     4
+#

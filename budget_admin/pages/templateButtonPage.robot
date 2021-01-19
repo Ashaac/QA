@@ -63,6 +63,7 @@ Download Dropdown Button
 
 Verify Download Worksheet Template button is clicked and downloaded
     Download Dropdown Button
+    sleep   2s
 #   Download Worksheet
     Wait Until Element Is Visible   ${download_worksheet_xpath}
     click element   ${download_worksheet_xpath}
@@ -72,6 +73,7 @@ Verify Download Worksheet Template button is clicked and downloaded
 Verify that Download Excel Template button is clicked
     Download Dropdown Button
 #   Download Excel
+    sleep   2s
     Wait Until Element Is Visible      ${download_excel_xpath}
     click element     ${download_excel_xpath}
     sleep   2s
@@ -98,6 +100,7 @@ Upload file after click upload
 
 
 Click on Upload worksheet difference tab
+    wait until element is visible    ${worksheet_difference_tab_xpath}
     click element   ${worksheet_difference_tab_xpath}
     sleep       1s
 # Upload worksheet submit tab
@@ -142,10 +145,11 @@ Click on Yearly tab
     sleep   2s
 
 Verify that Refresh Button prebudget is clicked
-    wait until element is not visible    //div[@id="cdk-overlay-0"]/nz-message-container/div/nz-message/div/div/div/span
+    wait until element is not visible    ${notify_after_upload}
     wait until element is visible   ${template_refresh}
     click element    ${template_refresh}
     sleep    2s
+
 
 
 Verify that History Button is working

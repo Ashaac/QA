@@ -12,7 +12,7 @@ ${rule}     fixedAsset
 
 *** Test Cases ***
 Click on Simulation Button Template
-    Click on Simulation Button Template
+    run keyword and continue on failure    Click on Simulation Button Template
 
 click Yes for simulation template
     click Yes for simulation template
@@ -21,22 +21,22 @@ click Yes for simulation template
 
 
 Click on Activity Monitoring
-    Click on Activity Monitoring
+    run keyword and continue on failure    Click on Activity Monitoring
 click to Execution log
-    Execution log
+    run keyword and continue on failure    Execution log
 Approve click simulation
-    Approve click simulation
+    run keyword and continue on failure    Approve click simulation
 
 #click on Ok button to approve simualtion
-#    Ok button to approve simualtion
+#    run keyword and continue on failure    Ok button to approve simualtion
 
 Click on Cancel approve simulation
-    Cancel approve simulation
+    run keyword and continue on failure    Cancel approve simulation
 
 Download prebudget result
-    Download prebudget result
+    run keyword and continue on failure    Download prebudget result
 
 Click on Activity Monitoring
-    Click on Activity Monitoring
+    run keyword and continue on failure    Click on Activity Monitoring
 Template log
-    Template log
+    run keyword and continue on failure    Template log

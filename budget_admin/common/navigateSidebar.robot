@@ -29,16 +29,18 @@ Execution log
     sleep   6s
     wait until element is visible    ${refresh_button_execution_log}
     click element    ${refresh_button_execution_log}
-    sleep   8s
+    sleep   10s
+    click element    ${refresh_button_execution_log}
     click element    ${refresh_button_execution_log}
     sleep   4s
 
 
 Template log
+    run keyword and continue on failure    Click on Activity Monitoring
     wait until element is visible    ${click_template_log_xpath}
     click element    ${click_template_log_xpath}
-
 # -- click history of template log
+    sleep    2s
     wait until element is visible    ${click_history_template_log}
     click element    ${click_history_template_log}
 
