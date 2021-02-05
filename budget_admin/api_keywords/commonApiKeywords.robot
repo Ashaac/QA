@@ -6,13 +6,15 @@ Library     OperatingSystem
 
 Resource        ../databases/capexdb.robot
 
+
+
 *** Variables ***
-${base_url}     https://10.13.189.8:8443/budget
-${cookies}              JSESSIONID=E4A1F72F4CA58230FD2415E52739CCAB
+${base_url}     https://10.13.189.56:8443/budget
+${cookies}              JSESSIONID=3388648A676CDB26EFAE26707056EA55
 ${DBName}       budgetdb
 ${DBUser}       application
 ${DBPass}       Application@123
-${DBHost}       10.13.189.8
+${DBHost}       10.13.189.56
 ${DBPort}       3306
 
 
@@ -21,15 +23,42 @@ ${DBPort}       3306
 Connection to Db
     Connect to Database     pymysql  ${DBName}  ${DBUser}  ${DBpass}    ${DBHost}  ${DBPort}
 
-
 Compare capex Land data
     create session    sessionstest     ${base_url}    verify=FALSE
-    &{headers}=  Create Dictionary      Cookie=JSESSIONID=4CE0324E4F0D0E24C8A04E67A0DE2FD0
+    &{headers}=  Create Dictionary      Cookie=JSESSIONID=3388648A676CDB26EFAE26707056EA55
     ${response}=    get request    sessionstest    /api/budgets/budgetbyBranch/999/1   data=None    headers=${headers}
-    ${capex}=   to json     ${response.text}
+    ${responseJSON}=    to json  ${response.text}
+    [Return]    ${responseJSON}
+
+Compare capex Land month1
+    ${capex}=   Compare capex Land data
     ${land_api_test}=   Set Variable    ${capex[2]['month_1']}
     ${land_api}=   CONVERT TO INTEGER    ${land_api_test}
     log to console    ${land_api}
     Connection to Db
     Test cpx land db   ${land_api}
-    execute sql script    ${EXECDIR}/databases/cpx.sql
+
+#Compare capex Land data
+#    create session    sessionstest     ${base_url}    verify=FALSE
+#    &{headers}=  Create Dictionary      Cookie=JSESSIONID=CAFA84C3F3C8A6791443BBF895B51E27
+#    ${response}=    get request    sessionstest    /api/budgets/budgetbyBranch/999/1   data=None    headers=${headers}
+#    ${capex}=   to json     ${response.text}
+#    ${land_api_test}=   Set Variable    ${capex[2]['month_1']}
+#    ${land_api}=   CONVERT TO INTEGER    ${land_api_test}
+#    log to console    ${land_api}
+#    Connection to Db
+#    Test cpx land db   ${land_api}
+
+Capex Land month2
+    ${capex}=   Compare capex Land data
+    ${land_api_test_month2}=   Set Variable    ${capex[2]['month_2']}
+    ${land_api_month2}=   CONVERT TO INTEGER    ${land_api_test_month2}
+    log to console    ${land_api_month2}
+    Connection to Db
+    Month2 cpx  ${land_api_month2}
+
+#    log to console    =======${EXECDIR}/databases/cpx.sql============
+#    execute sql script    ${EXECDIR}/databases/cpx.sql
+
+
+

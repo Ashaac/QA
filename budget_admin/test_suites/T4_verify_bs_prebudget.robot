@@ -37,6 +37,3 @@ Verify that BalanceSheet Prebudget Sidebar is clicked
 #    run keyword and continue on failure    Click on Yearly tab     1
 
 
-##    Confirmation dialogue for worksheet upload
-
-

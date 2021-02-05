@@ -7,11 +7,12 @@ Resource    ../pages/loginPage.robot
 
 Resource    ../pages/capexPrebudget.robot
 Resource    ../pages/templateButtonPage.robot
-Resource    ../common/navigateSidebar.robot
+#Resource    ../common/navigateSidebar.robot
 
 Resource    ../api_keywords/commonApiKeywords.robot
 
 Resource    ../pages/adhocTemplateAssign.robot
+Resource    ../pages/guidelines.robot
 
 Library     RequestsLibrary
 Library     SeleniumLibrary
@@ -20,26 +21,22 @@ Library      String
 Library      OperatingSystem
 
 Suite Setup    Open Budget Application
-#Suite Teardown  close all browsers
+
+#Suite Teardown  Click Logout
 
 
 
 *** Test Cases ***
 Verify that login page works properly and is authenticated
-    #run keyword and continue on failure    Verify Invalid Login
+#    run keyword and continue on failure    Verify Invalid Login
     run keyword and continue on failure    Verify Login Page is successful
-Click on assign Adhoc templates
-    Click Budget
-    click to adhoc templates
-    click on assign adhoc
-click assign adhoc region
-    click assign adhoc region
+    run keyword and continue on failure    Click Logout
 
-
-#    Click on Prebudget menu
-#    Click Capex Prebudget Sidebar
 
 #Test api
-#    Verify Login Page is successful
-    #Compare capex Land data
-
+#    #Verify Login Page is successful
+#    #Compare capex Land data
+#    run keyword and continue on failure    Click on Prebudget menu
+#    run keyword and continue on failure     Click Capex Prebudget Sidebar
+#    Compare capex Land month1
+#    Capex Land month2

@@ -10,16 +10,16 @@ ${input_name}                    //input[@id='name']
 ${input_username}                //input[@id='username']
 ${input_password}                //input[@id='password']
 ${input_email}                   //input[@id='email']
-${click_role_list}               //mat-select[@id='mat-select-1']
+${click_role_list}               //mat-select[@id='mat-select-0']
 ${input_role}                   //mat-option[@id='role_2']
-${region_list}                  //mat-select[@id='mat-select-2']
+${region_list}                  //mat-select[@id='mat-select-1']
 ${unclick_input_region_all}       //mat-option[@id='region_0']
-${click_input_region_1}         //mat-option[@id='region_1']
+${click_input_region_1}         //mat-option[@id='region_0']
 ${backdrop_xpath}                //html/body/div[1]/div[3]
 ${click_outside_role}            //div[@class='cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing']
 
-${click_branch_list}                //mat-select[@id='mat-select-3']
-${click_branch}                     //mat-option[@id='branch_1']
+${click_branch_list}                //mat-select[@id='mat-select-2']
+${click_branch}                     //perfect-scrollbar//mat-option[@id='branch_1']
 
 ${add_user_click_button_xpath}      //button[@id='add_user_btn']
 ${notify_xpath}                     //nz-notification/div/div/div/div/div[1]
@@ -51,19 +51,19 @@ Click Add User
     sleep    1s
 validate inputs of users name
     click element    ${input_name}
-    input text  ${input_name}    testing1a
+    input text  ${input_name}    testing1a1
     sleep   1s
 validate inputs of users username
     click element    ${input_username}
-    input text  ${input_username}    testing1a
+    input text  ${input_username}    testing1a1
     sleep   1s
 validate inputs of users password
     click element    ${input_password}
-    input text  ${input_password}    testing1a
+    input text  ${input_password}    testing1a1
     sleep   1s
 validate inputs of users email
     click element    ${input_email}
-    input text  ${input_email}   testing1a@gmail.com
+    input text  ${input_email}   testing1a1@gmail.com
     sleep   1s
 verify click in input roles
 #for user -5 , regional 7 , admin -4    , manager -6
@@ -89,12 +89,13 @@ verify that click in branch list
 Click User Add Button
     wait until element is visible    ${add_user_click_button_xpath}
     click button    ${add_user_click_button_xpath}
-    wait until element is visible    ${notify_xpath}
-    sleep   3s
-    ${Result} =   Get Element Count   ${close_button}
- #   log to console    ${Result}
-    RUN KEYWORD IF    ${Result}>0   click element    ${close_button}
-    sleep    1s
+    ${count_notify}=     get element count    ${notify_xpath}
+    run keyword if    ${count_notify}>0         wait until element is not visible    ${notify_xpath}
+    ...     ELSE    click element    ${close_button}
+    sleep   2s
+
+
+
 
 
 

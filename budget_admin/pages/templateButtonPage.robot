@@ -28,7 +28,7 @@ ${first_row_table_history}              //app-history/div[2]/div/ejs-treegrid/di
 
 ${guideline_button}                     //app-budget-guideline-template[@id='guidleline_btn']
 ${guideline_xpath}                      //mat-dialog-container[@id='mat-dialog-0']
-${close_guideline_button}               //mat-dialog-container[@id="mat-dialog-0"]/app-view-guideline/div/span/button
+${close_guideline_button}               //mat-dialog-container/app-view-guideline/div/span/button
 
 ${simulation_button}                    //span//i[@id='simulation_dialog_btn']
 ${yes_before_simulation_button}         //nz-modal/div/div[2]/div/div/div[3]/button[2]
@@ -53,6 +53,12 @@ ${ok_approve_button_click_xpath}                        //div[@class="ant-popove
 ${cancel_simulation_inside_execution_log_xpath}         //div[@class="ant-popover-buttons"]//button[1]
 
 ${download_prebudget_result_xpath}                      //app-execution-log/nz-table/nz-spin/div/div/div/div/div[2]/table/tbody/tr[1]/td[9]/span/a
+
+${quarterly_menu_name}        quarterlyReports
+${quarterlyreport}      quarterlyReports_consolidate
+${specialReports}       specialReports
+${click_template_consolidate_xpath}     //li[@id="template"]//div
+${template_consolidate}     template_consolidate
 *** Keywords ***
 
 Download Dropdown Button
@@ -107,11 +113,19 @@ Click on Upload worksheet difference tab
     click element       ${worksheet_submit_tab_xpath}
     sleep   2s
 
+
+
 Click on Upload submit to database
     WAIT UNTIL ELEMENT IS VISIBLE    ${submit_to_database_upload_button}
-    click element        ${submit_to_database_upload_button}
+    log to console      submit clickcked
+    click element        //app-upload-worksheet/div/mat-horizontal-stepper/descendant::button
     sleep    2s
-    wait until element is not visible    ${notify_after_upload}
+#    log to console      submit clickcked ended
+    ${Action_in_progress}=  get element count    xpath=//div[contains(@class, "ant-message-notice-content")]
+    log to console   ================= ${Action_in_progress} =========================
+    RUN KEYWORD IF      ${Action_in_progress}>0    wait until page does not contain element       xpath=//div[contains(@class, "ant-message-notice-content")]    timeout=300s
+    ...     ELSE        Execute javascript  ${backdrop_click}
+    ${Action_in_progress}=  get element count    xpath=//div[contains(@class, "ant-message-notice-content")]
     Execute javascript  ${backdrop_click}
     sleep   1s
 
@@ -119,13 +133,17 @@ Click on Upload submit to database
 Verify that Save Button is clicked
     Wait Until Element Is Visible      ${save_button}
     click element    ${save_button}
-    sleep   2s
-#   Yes confirm save
+    sleep   1s
 
+
+#   Yes confirm save
 Verify that Yes button is clicked and values are saved
     Wait until element is visible    ${yes_button}
     click element       ${yes_button}
-    sleep   5s
+    sleep   2s
+    ${Action_in_progress}=  get element count    xpath=//div[contains(@class, "ant-message-notice-content")]
+    RUN KEYWORD IF      ${Action_in_progress}>0    wait until page does not contain element       xpath=//div[contains(@class, "ant-message-notice-content")]    timeout=40s
+    ...     ELSE        Execute javascript  ${backdrop_click}
 
 No button
     Wait until element is visible    ${no_button}
@@ -185,7 +203,6 @@ Click rules simulation
     ...      ELSE       Click NetProfit
     log to console    ${rule}
     sleep    2s
-
 #-- Ok  button for before simulation
     WAIT UNTIL ELEMENT IS VISIBLE    ${yes_before_simulation_button}
     click element    ${yes_before_simulation_button}
@@ -284,6 +301,191 @@ Download prebudget result
     sleep    2s
 
 
+
+
+# =============== Quarterly Reports
+
+toggle quarterlyReports
+#    [Arguments]    ${menu_name}=quarterlyReports
+    Wait Until Element Is Visible       xpath=//li[@id='${quarterly_menu_name}']//div
+    click element    xpath=//li[@id='${quarterly_menu_name}']//div
+    sleep   1s
+
+#-- quarterlyReports_balance_sheet
+
+Balance sheet quarterlyReports
+    Wait Until Element Is Visible       xpath=//a[@id='${quarterlyreport}_1']
+    click element    xpath=//a[@id='${quarterlyreport}_1']
+    sleep   1s
+    Download quarterlyReports
+#    Click refresh quarterlyReports
+
+PL quarterlyReports
+    Wait Until Element Is Visible       xpath=//a[@id='${quarterlyreport}_2']
+    click element    xpath=//a[@id='${quarterlyreport}_2']
+    sleep   1s
+    Download quarterlyReports
+
+Capex quarterlyReports
+    Wait Until Element Is Visible       xpath=//a[@id='${quarterlyreport}_3']
+    click element    xpath=//a[@id='${quarterlyreport}_3']
+    sleep   1s
+    Download quarterlyReports
+
+HR quarterlyReports
+    Wait Until Element Is Visible       xpath=//a[@id='${quarterlyreport}_4']
+    click element    xpath=//a[@id='${quarterlyreport}_4']
+    sleep   1s
+    Download quarterlyReports
+
+Activity Based quarterlyReports
+    Wait Until Element Is Visible       xpath=//a[@id='${quarterlyreport}_5']
+    click element    xpath=//a[@id='${quarterlyreport}_5']
+    sleep   1s
+    Download quarterlyReports
+
+
+Download quarterlyReports
+# -- download special report
+    Wait Until Element Is not Visible   xpath=//app-budget-quarterly-consolidation-report/div[2]/div/nz-table/nz-spin/div/div/div/div/div/table
+    click element    xpath=//app-budget-quarterly-consolidation-report/div[1]/div/span/i[1]
+    sleep   3s
+
+
+
+# =========== Special Reports
+toggle specialReports
+    Wait Until Element Is Visible       xpath=//li[@id='${specialReports}']//div
+    click element    xpath=//li[@id='${specialReports}']//div
+    sleep   3s
+
+
+#    Wait Until Element Is Visible       xpath=//a[@id='${specialReports}_1']
+Balance sheet specialReports
+    click element    xpath=//a[@id='${specialReports}_1']
+    sleep   1s
+    ${state_sp}=    get element count    xpath=//p[@class="ant-empty-description"]
+    RUN KEYWORD IF    ${state_sp}>0         Date selection specialReports
+    ...    ELSE     Download specialReports
+
+
+
+Date selection specialReports
+    click element    //app-root/nz-layout/nz-layout/nz-content/div/app-budget-special-report/div[1]/div/app-month/nz-select/div/div/div[2]
+    click element    //li[starts-with(@class,'ant-select-dropdown-menu-item')][last()-1]
+    sleep    3s
+    Download specialReports
+
+PL specialReports
+    Wait Until Element Is Visible       xpath=//a[@id='${specialReports}_2']
+    click element    xpath=//a[@id='${specialReports}_2']
+    sleep   1s
+    Download specialReports
+
+Capex specialReports
+    Wait Until Element Is Visible       xpath=//a[@id='${specialReports}_3']
+    click element    xpath=//a[@id='${specialReports}_3']
+    sleep   1s
+    Download specialReports
+
+Hr specialReports
+    Wait Until Element Is Visible       xpath=//a[@id='${specialReports}_4']
+    click element    xpath=//a[@id='${specialReports}_4']
+    sleep   1s
+    Download specialReports
+
+Activity based specialReports
+    Wait Until Element Is Visible       xpath=//a[@id='${specialReports}_5']
+    click element    xpath=//a[@id='${specialReports}_5']
+    sleep   1s
+    Download specialReports
+
+
+Download specialReports
+# -- download special report
+    wait until element is not visible   xpath=//app-budget-special-report/div[2]/div/nz-table/nz-spin/div/div/div/div/div/table/tbody/tr[1]/td[1]
+    click element    xpath=//app-budget-special-report/div[1]/div/span/i[1]
+    sleep   8s
+
+
+
+#------------ Template Consolidation
+Click template Consolidation
+    click element    ${click_template_consolidate_xpath}
+    sleep   2s
+
+
+Download template Consolidation
+# -- download special report
+    click element    xpath=//app-budget-consolidated-treetable/div[1]/span[2]/span/nz-dropdown/span
+    sleep    1s
+    click element    //li[@class='ant-dropdown-menu-item']
+
+#    wait until element is visible    xpath=//app-budget-consolidated-treetable/div[1]/span[2]/span/nz-dropdown
+#    click element    xpath=//app-budget-consolidated-treetable/div[1]/span[2]/span/nz-dropdown
+#    sleep   1s
+#    click element    xpath=//i[@class='anticon anticon-file-excel']
+#    sleep    1s
+
+Click refresh template Consolidation
+#-- refresh button
+    click element    xpath=//app-budget-consolidated-treetable/div[1]/span[2]/span/i
+    sleep   1s
+
+Balance sheet Template Consolidation
+#    Wait Until Element is not Visible      //app-budget-special-report/div[2]/nz-table
+    click element    xpath=//a[@id='${template_consolidate}_1']
+    sleep   1s
+
+
+Profit Loss template Consolidation
+    Wait Until Element Is Visible       xpath=//a[@id='${template_consolidate}_2']
+    click element    xpath=//a[@id='${template_consolidate}_2']
+    sleep   1s
+    Download template Consolidation
+    Click refresh template Consolidation
+    sleep   1s
+
+Capex template Consolidation
+    Wait Until Element Is Visible       xpath=//a[@id='${template_consolidate}_3']
+    click element    xpath=//a[@id='${template_consolidate}_3']
+    sleep   1s
+    Download template Consolidation
+    Click refresh template Consolidation
+    sleep   1s
+
+Hr template Consolidation
+    Wait Until Element Is Visible       xpath=//a[@id='${template_consolidate}_4']
+    click element    xpath=//a[@id='${template_consolidate}_4']
+    sleep   1s
+    Download template Consolidation
+    Click refresh template Consolidation
+    sleep   1s
+
+
+Activity Based template Consolidation
+    Wait Until Element Is Visible       xpath=//a[@id='${template_consolidate}_5']
+    click element    xpath=//a[@id='${template_consolidate}_5']
+    sleep   1s
+    Download template Consolidation
+    Click refresh template Consolidation
+    sleep   1s
+
+
+Adhoc template Consolidation
+    Wait Until Element Is Visible       xpath=//a[@id='${template_consolidate}_6']
+    click element    xpath=//a[@id='${template_consolidate}_6']
+    sleep   1s
+    Download template Consolidation
+    Click refresh template Consolidation
+    sleep   1s
+
+Pagination change
+    click element    //div[@class='ant-select-selection__rendered']
+    sleep   1s
+    click element    //li[starts-with(@class,'ant-select-dropdown-menu-item')][last()-1]
+    sleep    1s
+
 #Confirmation dialogue for worksheet upload
 #    ## ok button worksheet
 #    wait until element is visible    xpath=//div[@id="cdk-overlay-3"]/div/div/div[2]/div/div/div[2]/button[2]
@@ -293,3 +495,4 @@ Download prebudget result
 ##    wait until element is visible    xpath=//div[@id="cdk-overlay-3"]/div/div/div[2]/div/div/div[2]/button[1]
 ##    click button    xpath=//div[@id="cdk-overlay-3"]/div/div/div[2]/div/div/div[2]/button[1]
 ##    sleep    2s
+

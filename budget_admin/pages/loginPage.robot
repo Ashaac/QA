@@ -74,3 +74,8 @@ page should contain header text
 Message after invalid username or password
     run keyword and continue on failure   element should be visible    ${message_invalid_password}     message=Your account is not recognized and cannot login at this time.
 
+Click Logout
+    click element    xpath=//nz-header/div[1]/span[2]/span[2]/nz-dropdown[1]
+    sleep    1s
+    click element    xpath=//li[normalize-space()='Log out']
+

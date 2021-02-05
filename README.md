@@ -42,6 +42,17 @@ To run the specific rule like `Fixed Assets` or `Net profit`
 robot --variable rule:fixedAssets  test_suites\*.robot
 robot --variable rule:Netprofit test_suites\*.robot
 ```
+To run and send email to users change in the section 
+```
+sender_address = sender@gmail.com'
+sender_pass = 'passwordxxx'
+
+message['To'] = "xyz@extensodata.com','abc@gmail.com"
+```
+use command
+```
+$ ./run.bat
+```
 
 For upload in worksheet
 ```

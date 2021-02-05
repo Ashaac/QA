@@ -17,6 +17,7 @@ Click on Prebudget menu
     sleep   2s
 
 Click on Activity Monitoring
+    sleep    2s
     wait until element is visible    ${actiivity_monitoring_section_click_xpath}
     click element    ${actiivity_monitoring_section_click_xpath}
 #    Execution log
@@ -47,5 +48,6 @@ Template log
 
 
 Click Budget
+    sleep    1s
     wait until element is visible    //li[@id='budget']
     click element    //li[@id='budget']
