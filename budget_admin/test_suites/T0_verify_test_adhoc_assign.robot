@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    this suite verifies Capex page.
+Documentation    this suite verifies adhoc assign page.
 
 Library     SeleniumLibrary
 Resource    ../common/navigateSidebar.robot

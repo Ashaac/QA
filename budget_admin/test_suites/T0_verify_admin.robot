@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    this suite verifies admin pge.
+Documentation    This suite verifies admin login page
 Library     SeleniumLibrary
 Library     String
 Resource    ../pages/loginPage.robot

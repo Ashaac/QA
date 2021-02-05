@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    this suite verifies Capex page.
+Documentation    this suite verifies Activity based template
 Library     SeleniumLibrary
 Resource    ../pages/activityPrebudget.robot
 Resource    ../pages/templateButtonPage.robot

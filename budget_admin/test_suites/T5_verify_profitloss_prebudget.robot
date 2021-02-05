@@ -40,8 +40,3 @@ Verify that ProfitLoss Prebudget Sidebar is clicked
 #    run keyword and continue on failure    Click on Yearly tab     2
 
 
-
-##    Simulation is done after prebudget exercise
-##    Verify that simulation button in template is working fine
-##    Verify that simulation done in activity log
-

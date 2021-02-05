@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    this suite verifies hr page.
+Documentation    this suite verifies hr template prebudget.
 Library     SeleniumLibrary
 Resource    ../pages/hrPrebudget.robot
 Resource    ../pages/templateButtonPage.robot

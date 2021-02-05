@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    this suite verifies Capex page.
+Documentation    this suite verifies Capex prebudget.
 
 Library     SeleniumLibrary
 Resource    ../pages/capexPrebudget.robot

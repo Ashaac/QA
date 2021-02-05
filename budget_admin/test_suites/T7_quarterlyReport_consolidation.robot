@@ -1,4 +1,5 @@
 *** Settings ***
+Documentation    This suite verifies quarterly report page
 Library    SeleniumLibrary
 
 Resource    ../common/navigateSidebar.robot
