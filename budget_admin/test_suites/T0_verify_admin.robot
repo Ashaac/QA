@@ -28,15 +28,5 @@ Suite Setup    Open Budget Application
 
 *** Test Cases ***
 Verify that login page works properly and is authenticated
-#    run keyword and continue on failure    Verify Invalid Login
+    run keyword and continue on failure    Verify Invalid Login
     run keyword and continue on failure    Verify Login Page is successful
-    run keyword and continue on failure    Click Logout
-
-
-#Test api
-#    #Verify Login Page is successful
-#    #Compare capex Land data
-#    run keyword and continue on failure    Click on Prebudget menu
-#    run keyword and continue on failure     Click Capex Prebudget Sidebar
-#    Compare capex Land month1
-#    Capex Land month2

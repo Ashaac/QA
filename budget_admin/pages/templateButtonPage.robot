@@ -256,7 +256,7 @@ Type test messages in view remarks
     wait until element is visible    ${test_message_click}
     click element    ${test_message_click}
     sleep    2s
-    input text    ${test_message_placeholder}     testing123
+    input text    ${test_message_placeholder}     hello
 
 send button
     wait until element is visible   ${send_remarks_button}
