@@ -34,7 +34,8 @@ Verify to input values in Capex unit price prebudget
     [Arguments]    ${amt}
     ${count} =    get element count    ${count_of_capex_particulars_xpath}
 #    log to console    ===================${count}===========================
-    FOR    ${index}    IN RANGE    2      ${count}+1
+#    FOR    ${index}    IN RANGE    2      ${count}+1
+    FOR    ${index}    IN RANGE    5      ${count}+1
         double click element    xpath=//table[@id='template_tree_grid_3_gridcontrol_content_table']//tbody//tr[${index}]/td[27]
         sleep       2s
         press keys    //table[@id='template_tree_grid_3_gridcontrol_content_table']//tbody//tr[${index}]/td[27]//span    CTRL+a

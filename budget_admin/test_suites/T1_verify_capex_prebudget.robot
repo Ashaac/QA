@@ -53,6 +53,7 @@ Verify that Capex Save Button is clicked
 
 Verify that Capex Yes button is clicked and values are saved
     run keyword and continue on failure    Verify that Yes button is clicked and values are saved
+
 #No button Capex
 #    run keyword and continue on failure    No button
 

@@ -38,6 +38,14 @@ Compare capex Land month1
     Connection to Db
     Test cpx land db   ${land_api}
 
+Capex Land month2
+    ${capex}=   Compare capex Land data
+    ${land_api_test_month2}=   Set Variable    ${capex[2]['month_2']}
+    ${land_api_month2}=   CONVERT TO INTEGER    ${land_api_test_month2}
+    log to console    ${land_api_month2}
+    Connection to Db
+    Month2 cpx  ${land_api_month2}
+
 #Compare capex Land data
 #    create session    sessionstest     ${base_url}    verify=FALSE
 #    &{headers}=  Create Dictionary      Cookie=JSESSIONID=CAFA84C3F3C8A6791443BBF895B51E27
@@ -49,13 +57,7 @@ Compare capex Land month1
 #    Connection to Db
 #    Test cpx land db   ${land_api}
 
-Capex Land month2
-    ${capex}=   Compare capex Land data
-    ${land_api_test_month2}=   Set Variable    ${capex[2]['month_2']}
-    ${land_api_month2}=   CONVERT TO INTEGER    ${land_api_test_month2}
-    log to console    ${land_api_month2}
-    Connection to Db
-    Month2 cpx  ${land_api_month2}
+
 
 #    log to console    =======${EXECDIR}/databases/cpx.sql============
 #    execute sql script    ${EXECDIR}/databases/cpx.sql

@@ -4,7 +4,6 @@ Library    SeleniumLibrary
 
 Resource    ../common/navigateSidebar.robot
 Resource    ../pages/templateButtonPage.robot
-Resource    ../common/navigateSidebar.robot
 Resource    ../pages/loginPage.robot
 
 *** Test Cases ***
@@ -22,8 +21,6 @@ Click refresh template Consolidation
     run keyword and continue on failure    Click refresh template Consolidation
     run keyword and continue on failure    Click template Consolidation
 
-click logout
-    run keyword and continue on failure    Click Logout
 
 #
 #Click Hr template Consolidation

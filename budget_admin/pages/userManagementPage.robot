@@ -23,8 +23,10 @@ ${click_branch}                     //perfect-scrollbar//mat-option[@id='branch_
 
 ${add_user_click_button_xpath}      //button[@id='add_user_btn']
 ${notify_xpath}                     //nz-notification/div/div/div/div/div[1]
-${close_button}                     //button[@id='close_btn']
+${close_button}                     //button[@id='close_btn']/span
+
 ${click_regional_list}        //mat-select[@id='mat-select-5']
+
 
 *** Keywords ***
 Click on User Management
@@ -49,33 +51,42 @@ Click Add User
     wait until element is visible    ${add_button}
     click element    ${add_button}
     sleep    1s
-validate inputs of users name
+
+validate inputs of name
+    [Arguments]    ${user_name}
     click element    ${input_name}
-    input text  ${input_name}    testing1a1
+    input text  ${input_name}   ${user_name}
     sleep   1s
+
+
 validate inputs of users username
+    [Arguments]    ${username}
     click element    ${input_username}
-    input text  ${input_username}    testing1a1
+    input text  ${input_username}    ${username}
     sleep   1s
 validate inputs of users password
+    [Arguments]    ${password}
     click element    ${input_password}
-    input text  ${input_password}    testing1a1
+    input text  ${input_password}      ${password}
     sleep   1s
 validate inputs of users email
+    [Arguments]    ${enter_email}
     click element    ${input_email}
-    input text  ${input_email}   testing1a1@gmail.com
+    input text  ${input_email}   ${enter_email}
     sleep   1s
 verify click in input roles
 #for user -5 , regional 7 , admin -4    , manager -6
+    sleep    1s
     click element    ${click_role_list}
     click element   ${input_role}
+    sleep    1s
 
-verify click list and input region
-    click element    ${region_list}
-    click element   ${unclick_input_region_all}
-    click element   ${unclick_input_region_all}
-    click element   ${click_input_region_1}
-    click element    ${click_outside_role}
+#verify click list and input region
+#    click element    ${region_list}
+#    click element   ${unclick_input_region_all}
+#    click element   ${unclick_input_region_all}
+#    click element   ${click_input_region_1}
+#    click element    ${click_outside_role}
 
 #-- inputs of branch
 verify that click in branch list
@@ -91,11 +102,91 @@ Click User Add Button
     click button    ${add_user_click_button_xpath}
     ${count_notify}=     get element count    ${notify_xpath}
     run keyword if    ${count_notify}>0         wait until element is not visible    ${notify_xpath}
-    ...     ELSE    click element    ${close_button}
+    ...     ELSE    Click close user add button
+    sleep   2s
+
+Click close user add button
+    click element    ${close_button}
+
+Yes delete user
+#-- confirm delete user
+    sleep    2s
+    WAIT UNTIL ELEMENT IS VISIBLE    xpath=//html/body/div[2]/div[2]/button[1]
+    click element   xpath=//html/body/div[2]/div[2]/button[1]
+    sleep   2s
+    click element   xpath=//html/body/div[2]/div[2]/button[1]
+    sleep    2s
+
+No delete user
+#-- cancel delete user
+    sleep    2s
+    WAIT UNTIL ELEMENT IS VISIBLE    xpath=//html/body/div[2]/div[2]/button[2]
+    click element   xpath=//html/body/div[2]/div[2]/button[2]
+    sleep   2s
+
+
+Click Edit user Button
+    wait until element is visible    //button[@id="edit_user_btn"]
+    click button     //button[@id="edit_user_btn"]
+    ${count_notify}=     get element count    ${notify_xpath}
+    run keyword if    ${count_notify}>0         wait until element is not visible    ${notify_xpath}
+    ...     ELSE    Click close user add button
+    sleep   2s
+
+
+verify click list and input region
+    [Arguments]    ${region_name}
+    click element    ${region_list}
+    ${id_region}=   defination of region  ${region_name}
+    click element   //mat-option[@id='${id_region}']
+    click element   ${unclick_input_region_all}
+    click element   ${click_input_region_1}
+    click element    ${click_outside_role}
+
+defination of region
+    [Arguments]  ${region}
+    ${region_name} =  Set Variable If
+            ...  "${region}"=="Region 1"  region_0
+            ...  "${region}"=="Region 2"  region_1
+            ...  "${region}"=="Region 3"  region_2
+            ...  "${region}"=="Region 4"  region_3
+            ...  "${region}"=="Region 5"  region_4
+            ...  "${region}"=="Region 6"  region_5
+            ...  "${region}"=="Region 7"  region_6
+            ...  "${region}"=="Region 8"  region_7
+            ...  "${region}"=="Region 9"  region_8
+            ...  "${region}"=="Jhapa Region"   region_9
+            ...  "${region}"=="Kathmandu Valley Region"  region_10
+            ...  "${region}"=="Pokhara Valley Region"   region_11
+            ...  "${region}"=="Unknown"   region_12
+    [Return]    ${region_name}
+
+
+verify that edit click in branch list
+    click element    //app-adduser/div/div/mat-card/mat-card-content/form/div[6]/mat-form-field/div/div[1]/div/mat-select[@placeholder="Branch"]
+    click element    //perfect-scrollbar//mat-option[@id='branch_0']
+    sleep   1s
+    click element    ${click_outside_role}
     sleep   2s
 
 
 
 
+verify edit user click list and input region
+    [Arguments]    ${region_name}
+    click element    //app-adduser/div/div/mat-card/mat-card-content/form/div[5]/mat-form-field/div/div[1]/div/mat-select[@placeholder="Region"]
+    ${id_region}=   defination of region  ${region_name}
+    click element   //mat-option[@id='${id_region}']
+    click element   ${unclick_input_region_all}
+    click element   ${click_input_region_1}
+    sleep    1s
+    click element    ${click_outside_role}
+    sleep    1s
 
+#-- edit element
+click edit button from user page
+    wait until element is visible    //tr[starts-with(@class,'ant-table-row ng-star-inserted')][last()]//td[8]/button[1]
+    click button     //tr[starts-with(@class,'ant-table-row ng-star-inserted')][last()]//td[8]/button[1]
 
+click delete user button
+    click button    //tr[starts-with(@class,'ant-table-row ng-star-inserted')][last()]//td[8]/button[2]

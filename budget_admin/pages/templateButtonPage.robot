@@ -59,6 +59,9 @@ ${quarterlyreport}      quarterlyReports_consolidate
 ${specialReports}       specialReports
 ${click_template_consolidate_xpath}     //li[@id="template"]//div
 ${template_consolidate}     template_consolidate
+
+${Reports_consolidation}    reports_consolidate
+${Reports}      reports
 *** Keywords ***
 
 Download Dropdown Button
@@ -483,8 +486,9 @@ Adhoc template Consolidation
 Pagination change
     click element    //div[@class='ant-select-selection__rendered']
     sleep   1s
-    click element    //li[starts-with(@class,'ant-select-dropdown-menu-item')][last()-1]
-    sleep    1s
+    click element    //li[starts-with(@class,'ant-select-dropdown-menu-item')][last()]
+    sleep    2s
+
 
 #Confirmation dialogue for worksheet upload
 #    ## ok button worksheet
@@ -496,3 +500,65 @@ Pagination change
 ##    click button    xpath=//div[@id="cdk-overlay-3"]/div/div/div[2]/div/div/div[2]/button[1]
 ##    sleep    2s
 
+
+
+# ===========  Reports
+toggle Reports
+    click element    xpath=//li[@id='${Reports}']//div
+    sleep   3s
+
+
+Balance sheet Reports
+    click element    xpath=//a[@id='${Reports_consolidation}_1']
+    sleep   1s
+    sleep   1s
+
+Click Dropdown Reports
+    wait until element is visible    //app-budget-treetable-generic-report-consolidation/div[1]/span[2]/app-button-on-template/span/nz-dropdown/span/i
+    click element    //app-budget-treetable-generic-report-consolidation/div[1]/span[2]/app-button-on-template/span/nz-dropdown/span/i
+    sleep    3s
+Click download Reports
+    wait until element is visible    //li[@id='report_download_btn']
+    click element    //li[@id='report_download_btn']
+    sleep    1s
+
+Refresh Reports
+    click element    xpath=//i[@id='report_refresh_btn']
+    sleep   1s
+
+
+PL Reports
+    click element    xpath=//a[@id='${Reports_consolidation}_2']
+    sleep   1s
+    Click Dropdown Reports
+    Click download Reports
+    Refresh Reports
+
+Capex Reports
+    click element    xpath=//a[@id='${Reports_consolidation}_3']
+    sleep   1s
+    Click Dropdown Reports
+    Click download Reports
+    Refresh Reports
+
+Hr Reports
+    click element    xpath=//a[@id='${Reports_consolidation}_4']
+    sleep   1s
+    Click Dropdown Reports
+    Click download Reports
+    Refresh Reports
+
+Activity Based Reports
+    click element    xpath=//a[@id='${Reports_consolidation}_5']
+    sleep   1s
+    Click Dropdown Reports
+    Click download Reports
+    Refresh Reports
+
+
+Adhoc Reports
+    click element    xpath=//a[@id='${Reports_consolidation}_6']
+    sleep   1s
+    Click Dropdown Reports
+    Click download Reports
+    Refresh Reports
