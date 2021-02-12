@@ -12,9 +12,9 @@ ${input_password}                //input[@id='password']
 ${input_email}                   //input[@id='email']
 ${click_role_list}               //mat-select[@id='mat-select-0']
 ${input_role}                   //mat-option[@id='role_2']
+
 ${region_list}                  //mat-select[@id='mat-select-1']
-${unclick_input_region_all}       //mat-option[@id='region_0']
-${click_input_region_1}         //mat-option[@id='region_0']
+${click_input_region_1}       //mat-option[@id='region_0']
 ${backdrop_xpath}                //html/body/div[1]/div[3]
 ${click_outside_role}            //div[@class='cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing']
 
@@ -91,15 +91,18 @@ verify click in input roles
 #-- inputs of branch
 verify that click in branch list
     click element    ${click_branch_list}
+    sleep    1s
     click element    ${click_branch}
     sleep   1s
     click element    ${click_outside_role}
-    sleep   2s
+    sleep   1s
 
 # -- Add user button
 Click User Add Button
     wait until element is visible    ${add_user_click_button_xpath}
+    sleep    1s
     click button    ${add_user_click_button_xpath}
+    sleep    1s
     ${count_notify}=     get element count    ${notify_xpath}
     run keyword if    ${count_notify}>0         wait until element is not visible    ${notify_xpath}
     ...     ELSE    Click close user add button
@@ -127,7 +130,9 @@ No delete user
 
 Click Edit user Button
     wait until element is visible    //button[@id="edit_user_btn"]
+    sleep    1s
     click button     //button[@id="edit_user_btn"]
+    sleep   1s
     ${count_notify}=     get element count    ${notify_xpath}
     run keyword if    ${count_notify}>0         wait until element is not visible    ${notify_xpath}
     ...     ELSE    Click close user add button
@@ -137,12 +142,16 @@ Click Edit user Button
 verify click list and input region
     [Arguments]    ${region_name}
     click element    ${region_list}
+    sleep    1s
     ${id_region}=   defination of region  ${region_name}
+    sleep    1s
     click element   //mat-option[@id='${id_region}']
-    click element   ${unclick_input_region_all}
-    click element   ${click_input_region_1}
+#    click element   ${unclick_input_region_all}
+#    sleep    1s
+#    click element   ${click_input_region_1}
+    sleep    1s
     click element    ${click_outside_role}
-
+    sleep   1s
 defination of region
     [Arguments]  ${region}
     ${region_name} =  Set Variable If
@@ -163,7 +172,9 @@ defination of region
 
 
 verify that edit click in branch list
+    sleep   1s
     click element    //app-adduser/div/div/mat-card/mat-card-content/form/div[6]/mat-form-field/div/div[1]/div/mat-select[@placeholder="Branch"]
+    sleep    1s
     click element    //perfect-scrollbar//mat-option[@id='branch_0']
     sleep   1s
     click element    ${click_outside_role}
@@ -177,8 +188,8 @@ verify edit user click list and input region
     click element    //app-adduser/div/div/mat-card/mat-card-content/form/div[5]/mat-form-field/div/div[1]/div/mat-select[@placeholder="Region"]
     ${id_region}=   defination of region  ${region_name}
     click element   //mat-option[@id='${id_region}']
-    click element   ${unclick_input_region_all}
-    click element   ${click_input_region_1}
+#    click element   ${click_input_region_1}
+#    click element   ${click_input_region_1}
     sleep    1s
     click element    ${click_outside_role}
     sleep    1s

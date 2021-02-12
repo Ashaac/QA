@@ -10,7 +10,7 @@ Resource        ../databases/capexdb.robot
 
 *** Variables ***
 ${base_url}     https://10.13.189.56:8443/budget
-${cookies}              JSESSIONID=3388648A676CDB26EFAE26707056EA55
+${cookies}              JSESSIONID=7F4CED6DE8F4AB08ABA085932EDF4478
 ${DBName}       budgetdb
 ${DBUser}       application
 ${DBPass}       Application@123
@@ -25,11 +25,12 @@ Connection to Db
 
 Compare capex Land data
     create session    sessionstest     ${base_url}    verify=FALSE
-    &{headers}=  Create Dictionary      Cookie=JSESSIONID=3388648A676CDB26EFAE26707056EA55
+    &{headers}=  Create Dictionary      Cookie=JSESSIONID=7F4CED6DE8F4AB08ABA085932EDF4478
     ${response}=    get request    sessionstest    /api/budgets/budgetbyBranch/999/1   data=None    headers=${headers}
     ${responseJSON}=    to json  ${response.text}
     [Return]    ${responseJSON}
 
+##    &{headers}=  Create Dictionary      Cookie=${cookies}
 Compare capex Land month1
     ${capex}=   Compare capex Land data
     ${land_api_test}=   Set Variable    ${capex[2]['month_1']}

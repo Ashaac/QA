@@ -127,10 +127,10 @@ Click on Upload submit to database
     ${Action_in_progress}=  get element count    xpath=//div[contains(@class, "ant-message-notice-content")]
     log to console   ================= ${Action_in_progress} =========================
     RUN KEYWORD IF      ${Action_in_progress}>0    wait until page does not contain element       xpath=//div[contains(@class, "ant-message-notice-content")]    timeout=300s
-    ...     ELSE        Execute javascript  ${backdrop_click}
-    ${Action_in_progress}=  get element count    xpath=//div[contains(@class, "ant-message-notice-content")]
-    Execute javascript  ${backdrop_click}
-    sleep   1s
+    ...     ELSE        backdrop
+#    ${Action_in_progress}=  get element count    xpath=//div[contains(@class, "ant-message-notice-content")]
+#    backdrop
+    sleep    1s
 
 
 Verify that Save Button is clicked
@@ -146,7 +146,7 @@ Verify that Yes button is clicked and values are saved
     sleep   2s
     ${Action_in_progress}=  get element count    xpath=//div[contains(@class, "ant-message-notice-content")]
     RUN KEYWORD IF      ${Action_in_progress}>0    wait until page does not contain element       xpath=//div[contains(@class, "ant-message-notice-content")]    timeout=40s
-    ...     ELSE        Execute javascript  ${backdrop_click}
+    ...     ELSE        backdrop
 
 No button
     Wait until element is visible    ${no_button}
@@ -268,7 +268,7 @@ send button
 
 backdrop
     Execute javascript  ${backdrop_click}
-
+    sleep   1s
 
 
 Template history drop down

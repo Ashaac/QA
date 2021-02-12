@@ -8,9 +8,8 @@ ${adhoc_assign_button}      //button[@class='ant-btn-primary ant-btn ant-btn-def
 
 ${select_region_adhoc}       //app-assign-template/div/form/span[1]/nz-form-item[1]/nz-form-control/div/span/app-region-branch/div/nz-select[1]/div/div
 
-${unselect_region1_adhoc}       //div[@id="cdk-overlay-3"]/div/div/ul/li[1]
-${click_unclick_region2_adhoc}       //div[@id="cdk-overlay-3"]/div/div/ul/li[2]
-${click_unclick_region1_adhoc}       //div[@id="cdk-overlay-3"]/div/div/ul/li[1]
+${unselect_region1_adhoc}       //li[starts-with(@class,'ant-select-dropdown-menu-item') and contains(text(),'Region 1')]
+${click_unclick_region2_adhoc}       //li[starts-with(@class,'ant-select-dropdown-menu-item') and contains(text(),'Region 2')]
 ${background_click}      //div[@class='cdk-overlay-backdrop nz-overlay-transparent-backdrop cdk-overlay-backdrop-showing']
 
 ${click_datepicker_adhoc}     //span[@class='ant-calendar-picker-input ant-input ng-star-inserted']
@@ -27,10 +26,12 @@ ${year_upto_datepicker}     //div[@class='ant-calendar-range-part ant-calendar-r
 click to adhoc templates
     wait until element is visible    ${adhoc_click}
     click element    ${adhoc_click}
+    sleep    2s
 
 click on assign adhoc
     wait until element is visible    ${adhoc_assign_button}
     click element    ${adhoc_assign_button}
+    sleep    1s
 
 click assign adhoc region
     wait until element is visible    ${select_region_adhoc}
@@ -38,23 +39,27 @@ click assign adhoc region
     #select region
     sleep    2s
 
-select region on adhoc
-#     Alternative option
-    #reg 1
-    click element    ${unselect_region1_adhoc}
-    #reg 2
-    click element    ${click_unclick_region2_adhoc}
-    sleep    2s
-    #reg 2
-Select region 2
-    click element    ${click_unclick_region2_adhoc}
-    # drop down of adhoc region
-    click element    ${background_click}
+#select region on adhoc
+##     Alternative option
+#    #reg 1
+#    click element    ${unselect_region1_adhoc}
+#    #reg 2
+#    click element    ${click_unclick_region2_adhoc}
+#    sleep    2s
+#    #reg 2
 
-Select region 1
-    click element    ${click_unclick_region1_adhoc}
-    # drop down of adhoc region
+
+select region on adhoc
+    [Arguments]    ${regions}
+#    unselect all regions
+    click element    ${unselect_region1_adhoc}
+    click element    ${click_unclick_region2_adhoc}
+#select region
+    sleep    1s
+    click element    //li[starts-with(@class,'ant-select-dropdown-menu-item') and contains(text(),'${regions}')]
+    sleep   1s
     click element    ${background_click}
+    sleep   1s
 
 select branch on adhoc except one
     [Arguments]    ${Branch}
@@ -142,7 +147,9 @@ Click Adhoc reset button
     click button    //app-assign-template/div/form/span[1]/nz-form-item[3]/button[2]
 
 Click Adhoc save button
-    click button    //app-assign-template/div/form/span[1]/nz-form-item[3]/button[1]
+    ${count}=   get element count    //app-assign-template/div/form/span[1]/nz-form-item[3]/button[1]
+    RUN KEYWORD IF      ${count}>0      click button    //app-assign-template/div/form/span[1]/nz-form-item[3]/button[1]
+    ...   ELSE  Click Close Adhoc button
     sleep    1s
 
 Click Assign Adhoc Cancel button
@@ -150,25 +157,28 @@ Click Assign Adhoc Cancel button
     sleep    1s
 
 Click Assign Adhoc Ok button
+    wait until element is visible    //div[@class='ant-popover-buttons']/button[2]
     click element    //div[@class='ant-popover-buttons']/button[2]
     wait until element is visible      //div[@class='ant-message-notice-content']
     sleep    1s
 
 Click Close Adhoc button
     click element    //button[@class='ant-btn ng-star-inserted ant-btn-default']
+    sleep    1s
 
-open dropdown
+open category adhoc side dropdown
      [Arguments]    ${index}
      click element    //app-assign-template/div/form/span[2]/nz-form-item/nz-form-control/div/span/nz-tree/ul/nz-tree-node[${index}]/li/span[1]
      click element    //app-assign-template/div/form/span[2]/nz-form-item/nz-form-control/div/span/nz-tree/ul/nz-tree-node[${index}]/li//ul/nz-tree-node[1]/li/span[2]
 
 select adhoc category
-    @{randomIndex} =   create list      1   5
+    @{randomIndex} =   create list      1
     FOR   ${item}    IN  @{randomIndex}
 #        log to console    ${item}
         sleep    1s
         click element    //app-assign-template/div/form/span[2]/nz-form-item/nz-form-control/div/span/nz-tree/ul/nz-tree-node[${item}]/li/span[2]/span
         ${dropdowns}=  get element count    //app-assign-template/div/form/span[2]/nz-form-item/nz-form-control/div/span/nz-tree/ul/nz-tree-node[${item}]/li[contains(@class, 'ant-tree-treenode-switcher-close')]
-        run keyword if    ${dropdowns}>0       open dropdown   ${item}
+        run keyword if    ${dropdowns}>0       open category adhoc side dropdown   ${item}
         sleep    1s
     END
+    sleep    1s

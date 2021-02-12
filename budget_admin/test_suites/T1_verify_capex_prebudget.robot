@@ -46,7 +46,7 @@ Verify that Capex Refresh Button prebudget is clicked
     run keyword and continue on failure    Verify that Refresh Button prebudget is clicked
 
 Verify to Capex input values in Capex unit price prebudget
-    run keyword and continue on failure    Verify to input values in Capex unit price prebudget     5000
+    run keyword and continue on failure    Verify to input values in Capex unit price prebudget     15000
 
 Verify that Capex Save Button is clicked
     run keyword and continue on failure    Verify that Save Button is clicked

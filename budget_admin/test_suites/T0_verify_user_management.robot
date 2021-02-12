@@ -26,7 +26,7 @@ validate inputs of users email
 verify click in input roles
     run keyword and continue on failure     verify click in input roles
 verify click list and input region
-    run keyword and continue on failure     verify click list and input region      Region 1
+    run keyword and continue on failure     verify click list and input region    Region 1
 verify that click in branch list
     run keyword and continue on failure     verify that click in branch list
 Click User Add Button

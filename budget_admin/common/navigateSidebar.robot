@@ -51,3 +51,4 @@ Click Budget
     sleep    1s
     wait until element is visible    //li[@id='budget']
     click element    //li[@id='budget']
+    sleep    1s
