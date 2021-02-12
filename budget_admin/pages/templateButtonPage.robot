@@ -89,7 +89,6 @@ Verify that Download Excel Template button is clicked
 
 
 Verify that Upload Worksheet button is working
-#    [Arguments]    ${upload_cpx}
     Download Dropdown Button
     sleep    1s
 #   Upload Button
