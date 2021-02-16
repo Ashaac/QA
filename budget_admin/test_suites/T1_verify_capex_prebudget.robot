@@ -25,6 +25,9 @@ Test api
 #    run keyword and continue on failure     Click Capex Prebudget Sidebar
 
 
+
+
+
 Verify Capex Download Worksheet Template button is clicked and downloaded
     run keyword and continue on failure    Verify Download Worksheet Template button is clicked and downloaded
 
@@ -45,8 +48,12 @@ Click on Capex Upload submit to database
 Verify that Capex Refresh Button prebudget is clicked
     run keyword and continue on failure    Verify that Refresh Button prebudget is clicked
 
+Click on Capex Yearly tab
+    run keyword and continue on failure    Click on Yearly tab     3
+
+
 Verify to Capex input values in Capex unit price prebudget
-    run keyword and continue on failure    Verify to input values in Capex unit price prebudget     15000
+    run keyword and continue on failure    Verify to input values in Capex unit price prebudget     10000
 
 Verify that Capex Save Button is clicked
     run keyword and continue on failure    Verify that Save Button is clicked
@@ -59,8 +66,15 @@ Verify that Capex Yes button is clicked and values are saved
 
 Click on Capex Monthly tab
     run keyword and continue on failure    Click on Monthly tab    3
+
+Click on Capex Quarterly tab
+    run keyword and continue on failure    Click on Quarterly tab    3
+
 Click on Capex Yearly tab
     run keyword and continue on failure    Click on Yearly tab     3
+
+
+
 
 Verify that Capex Guideline Button is working
     run keyword and continue on failure    Verify that Guideline Button is working
@@ -71,7 +85,7 @@ Validate test Capex Remarks to branch 1
 Verify that Capex History Button is working
     run keyword and continue on failure    Verify that History Button is working
 
-
+###############QUARTERLY CAPEX ##########################
 
 
 

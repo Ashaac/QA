@@ -14,8 +14,7 @@ ${click_role_list}               //mat-select[@id='mat-select-0']
 ${input_role}                   //mat-option[@id='role_2']
 
 ${region_list}                  //mat-select[@id='mat-select-1']
-${click_input_region_1}       //mat-option[@id='region_0']
-${backdrop_xpath}                //html/body/div[1]/div[3]
+#${backdrop_xpath}                //html/body/div[1]/div[3]
 ${click_outside_role}            //div[@class='cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing']
 
 ${click_branch_list}                //mat-select[@id='mat-select-2']
@@ -25,8 +24,13 @@ ${add_user_click_button_xpath}      //button[@id='add_user_btn']
 ${notify_xpath}                     //nz-notification/div/div/div/div/div[1]
 ${close_button}                     //button[@id='close_btn']/span
 
-${click_regional_list}        //mat-select[@id='mat-select-5']
 
+
+${ok_delete}    //html/body/div[2]/div[2]/button[1]
+${no_delete}    xpath=//html/body/div[2]/div[2]/button[2]
+
+${edit_user_btn}   //button[@id="edit_user_btn"]
+${edit_branch}      //app-adduser/div/div/mat-card/mat-card-content/form/div[6]/mat-form-field/div/div[1]/div/mat-select[@placeholder="Branch"]
 
 *** Keywords ***
 Click on User Management
@@ -81,13 +85,6 @@ verify click in input roles
     click element   ${input_role}
     sleep    1s
 
-#verify click list and input region
-#    click element    ${region_list}
-#    click element   ${unclick_input_region_all}
-#    click element   ${unclick_input_region_all}
-#    click element   ${click_input_region_1}
-#    click element    ${click_outside_role}
-
 #-- inputs of branch
 verify that click in branch list
     click element    ${click_branch_list}
@@ -114,24 +111,24 @@ Click close user add button
 Yes delete user
 #-- confirm delete user
     sleep    2s
-    WAIT UNTIL ELEMENT IS VISIBLE    xpath=//html/body/div[2]/div[2]/button[1]
-    click element   xpath=//html/body/div[2]/div[2]/button[1]
+    WAIT UNTIL ELEMENT IS VISIBLE    ${ok_delete}
+    click element   ${ok_delete}
     sleep   2s
-    click element   xpath=//html/body/div[2]/div[2]/button[1]
+    click element   ${ok_delete}
     sleep    2s
 
 No delete user
 #-- cancel delete user
     sleep    2s
-    WAIT UNTIL ELEMENT IS VISIBLE    xpath=//html/body/div[2]/div[2]/button[2]
-    click element   xpath=//html/body/div[2]/div[2]/button[2]
+    WAIT UNTIL ELEMENT IS VISIBLE    ${no_delete}
+    click element   ${no_delete}
     sleep   2s
 
 
 Click Edit user Button
-    wait until element is visible    //button[@id="edit_user_btn"]
+    wait until element is visible    ${edit_user_btn}
     sleep    1s
-    click button     //button[@id="edit_user_btn"]
+    click button     ${edit_user_btn}
     sleep   1s
     ${count_notify}=     get element count    ${notify_xpath}
     run keyword if    ${count_notify}>0         wait until element is not visible    ${notify_xpath}
@@ -173,7 +170,7 @@ defination of region
 
 verify that edit click in branch list
     sleep   1s
-    click element    //app-adduser/div/div/mat-card/mat-card-content/form/div[6]/mat-form-field/div/div[1]/div/mat-select[@placeholder="Branch"]
+    click element    ${edit_branch}
     sleep    1s
     click element    //perfect-scrollbar//mat-option[@id='branch_0']
     sleep   1s

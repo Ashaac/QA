@@ -67,6 +67,10 @@ Verify Login Page is successful
     Enter valid Username    admin
     Enter valid Password    admin123
     Click Submit
+    ${cookies}=    get cookies
+    set global variable   ${cookies}    ${cookies}
+
+
 
 
 page should contain header text

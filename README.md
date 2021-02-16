@@ -49,7 +49,7 @@ sender_pass = 'passwordxxx'
 
 message['To'] = "xyz@extensodata.com','abc@gmail.com"
 ```
-use command
+use command from budget_admin folder
 ```
 $ ./run.bat
 ```

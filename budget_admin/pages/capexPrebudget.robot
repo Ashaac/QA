@@ -15,6 +15,8 @@ Click Capex Prebudget Sidebar
     click element    xpath=//a[@id='${menu_name_xpath}_3']
     sleep   2s
 
+
+
 #Verify to input values in Capex unit price prebudget
 #    ${count} =    get element count    ${count_of_capex_particulars_xpath}
 ##    log to console    ===================${count}===========================

@@ -3,7 +3,8 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${menu_name}                            prebudget
-${download_dropdown}                    //span[@class='ant-dropdown-trigger']//i
+#${download_dropdown}                    //span[@class='ant-dropdown-trigger']//i
+${download_dropdown}                    //app-button-on-template/span/nz-dropdown[1]//span[@class='ant-dropdown-trigger']//i
 ${download_worksheet_xpath}             //app-download-worksheet[@id='download_worksheet_btn']
 ${download_excel_xpath}                 //li[@id='download_template_btn']
 
@@ -13,8 +14,9 @@ ${file_upload_block}                    document.getElementById('upload_file-cho
 ${file_upload_none}                     document.getElementById('upload_file-chooser').getElementsByTagName('input')[0].style.display='none'
 ${worksheet_difference_tab_xpath}           //app-upload-worksheet/div/mat-horizontal-stepper/div[1]/mat-step-header[2]/div[3]
 ${worksheet_submit_tab_xpath}           //app-upload-worksheet/div/mat-horizontal-stepper/div[1]/mat-step-header[3]
-${submit_to_database_upload_button}     //mat-horizontal-stepper//button//span
-${notify_after_upload}                  //nz-notification/div/div/div/div/div[1]
+${submit_to_database_upload_button}     //mat-horizontal-stepper//button[@class="ant-btn ant-btn-primary"]//span
+
+${notify_after_upload}                  //div[@class='ant-notification-notice-message']
 ${backdrop_click}                       document.getElementsByClassName('cdk-overlay-backdrop')[0].click()
 ${save_button}                          //i[@id='template_save_btn']
 ${yes_button}                           //button[@id='confirm_save']
@@ -27,7 +29,6 @@ ${click_latest_history}                 //div[@class='cdk-overlay-container']//l
 ${first_row_table_history}              //app-history/div[2]/div/ejs-treegrid/div[2]/div[3]/div/table/tbody/tr[1]
 
 ${guideline_button}                     //app-budget-guideline-template[@id='guidleline_btn']
-${guideline_xpath}                      //mat-dialog-container[@id='mat-dialog-0']
 ${close_guideline_button}               //mat-dialog-container/app-view-guideline/div/span/button
 
 ${simulation_button}                    //span//i[@id='simulation_dialog_btn']
@@ -41,7 +42,7 @@ ${radio_button_click_fixedAsset}        //nz-radio-group/label[1]/span[2]
 ${radio_button_click_netProfit}         //nz-radio-group/label[2]/span[2]
 
 ${click_view_remarks}                   //app-template-remark[@id='remark_btn']
-${click_view_remarks_branch_1}          //app-remark-dialog/div[1]/div/div/div[1]/div[2]/button[2]
+
 ${test_message_click}                   //div[@id='type_msg']
 ${test_message_placeholder}             xpath=//textarea[@placeholder='Remark']
 ${send_remarks_button}                  //div[@id='type_msg']/i
@@ -164,11 +165,20 @@ Click on Yearly tab
     click element       //button[@id='year_view_tab_${template_id}']
     sleep   2s
 
+Click on Quarterly tab
+   [Arguments]    ${template_id}
+    Wait until element is visible    //button[@id='quarter_view_tab_${template_id}']
+    click element       //button[@id='quarter_view_tab_${template_id}']
+    sleep   2s
+
 Verify that Refresh Button prebudget is clicked
     wait until element is not visible    ${notify_after_upload}
     wait until element is visible   ${template_refresh}
     click element    ${template_refresh}
     sleep    2s
+
+
+
 
 
 
@@ -218,7 +228,7 @@ Click rules simulation
 #
 
 No simulation
-    Wait Until Element Is Visible    ${no_simulation_button}}
+    Wait Until Element Is Visible    ${no_simulation_button}
     click element   ${no_simulation_button}
 
 click Yes for simulation template
@@ -242,23 +252,25 @@ Click NetProfit
 
 
 Validate test Remarks to branch 1
-    Click to View remarks and chat menu
+    Click to View remarks and chat menu     Branch Mgr 1
     Type test messages in view remarks
     send button
     backdrop
 
 #-- for  view  remarks
 Click to View remarks and chat menu
+    [Arguments]    ${branch}
     wait until element is visible   ${click_view_remarks}
     click element    ${click_view_remarks}
     sleep   2s
-    click element    ${click_view_remarks_branch_1}
+    click element    //span[normalize-space()='${branch}']//span[@id='chat_user_list_name']
+#    click element    ${click_view_remarks_branch_1}
 
 Type test messages in view remarks
     wait until element is visible    ${test_message_click}
     click element    ${test_message_click}
     sleep    2s
-    input text    ${test_message_placeholder}     hello
+    input text    ${test_message_placeholder}     testing
 
 send button
     wait until element is visible   ${send_remarks_button}
@@ -361,9 +373,8 @@ toggle specialReports
     click element    xpath=//li[@id='${specialReports}']//div
     sleep   3s
 
-
-#    Wait Until Element Is Visible       xpath=//a[@id='${specialReports}_1']
 Balance sheet specialReports
+    wait until element is visible    xpath=//a[@id='${specialReports}_1']
     click element    xpath=//a[@id='${specialReports}_1']
     sleep   1s
     ${state_sp}=    get element count    xpath=//p[@class="ant-empty-description"]

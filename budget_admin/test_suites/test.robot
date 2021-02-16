@@ -10,7 +10,7 @@ Resource        ../databases/capexdb.robot
 
 *** Variables ***
 ${base_url}     https://10.13.189.56:8443/budget
-${cookies}       JSESSIONID=7F4CED6DE8F4AB08ABA085932EDF4478
+${cookies}       JSESSIONID=FFEAB896F77FB64B802A6CA0AD195CD3
 ${DBName}       budgetdb
 ${DBUser}       application
 ${DBPass}       Application@123

@@ -9,7 +9,8 @@ Click guidelines
     sleep    1s
     wait until element is visible        //mat-card[@class="card card-raised mat-elevation-z9 mat-card"]
 Add guideline
-    click button        css=app-root.ng-star-inserted:nth-child(2) nz-layout.app-layout.ant-layout.ant-layout-has-sider nz-layout.ant-layout nz-content.ant-layout-content div.inner-content app-guideline.ng-star-inserted:nth-child(2) div:nth-child(1) mat-card.card.card-raised.mat-elevation-z9.mat-card mat-card-content.row.mat-card-content div:nth-child(1) > button.mat-raised-button.mat-button-base.mat-accent:nth-child(4)
+    click button        //app-guideline/div/mat-card/mat-card-content/div/button[1]
+#    click button        css=app-root.ng-star-inserted:nth-child(2) nz-layout.app-layout.ant-layout.ant-layout-has-sider nz-layout.ant-layout nz-content.ant-layout-content div.inner-content app-guideline.ng-star-inserted:nth-child(2) div:nth-child(1) mat-card.card.card-raised.mat-elevation-z9.mat-card mat-card-content.row.mat-card-content div:nth-child(1) > button.mat-raised-button.mat-button-base.mat-accent:nth-child(4)
     sleep    1s
 
 #Input name and value
@@ -39,10 +40,13 @@ click save guidelines button
     wait until element is visible    //div[contains(@class, "cdk-overlay-container")]/descendant::app-guideline-parent/form/mat-card/div[1]/button[1]
     #log to console    clicking first time
     click element    //div[contains(@class, "cdk-overlay-container")]/descendant::app-guideline-parent/form/mat-card/div[1]/button[1]
-    wait until page does not contain      xpath=//div[contains(@class, "ant-notification-notice-message")]    timeout=10s
-    sleep    10s
-    execute javascript      document.getElementsByClassName('cdk-overlay-container')[0].getElementsByTagName('app-guideline-parent')[0].getElementsByTagName('mat-card')[0].getElementsByTagName('button')[0].click()
-    sleep    1s
+    ${c}=   get element count    //div[contains(@class, "ant-notification-notice-message")]
+    RUN KEYWORD IF  ${c}>0  wait until element is not visible    xpath=//div[contains(@class, "ant-notification-notice-message")]   timeout=5s
+    ...     ELSE    click close guidelines button
+    #wait until page does not contain      xpath=//div[contains(@class, "ant-notification-notice-message")]    timeout=10s
+    sleep    3s
+#    execute javascript      document.getElementsByClassName('cdk-overlay-container')[0].getElementsByTagName('app-guideline-parent')[0].getElementsByTagName('mat-card')[0].getElementsByTagName('button')[0].click()
+#    click close guidelines button
     #log to console    clicking again
 
 

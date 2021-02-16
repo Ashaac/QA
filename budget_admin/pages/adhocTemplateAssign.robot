@@ -8,18 +8,36 @@ ${adhoc_assign_button}      //button[@class='ant-btn-primary ant-btn ant-btn-def
 
 ${select_region_adhoc}       //app-assign-template/div/form/span[1]/nz-form-item[1]/nz-form-control/div/span/app-region-branch/div/nz-select[1]/div/div
 
+
+
 ${unselect_region1_adhoc}       //li[starts-with(@class,'ant-select-dropdown-menu-item') and contains(text(),'Region 1')]
 ${click_unclick_region2_adhoc}       //li[starts-with(@class,'ant-select-dropdown-menu-item') and contains(text(),'Region 2')]
-${background_click}      //div[@class='cdk-overlay-backdrop nz-overlay-transparent-backdrop cdk-overlay-backdrop-showing']
+${background_click}         //div[@class='cdk-overlay-backdrop nz-overlay-transparent-backdrop cdk-overlay-backdrop-showing']
 
+${dropdown_branch}       //app-assign-template/div/form/span[1]/nz-form-item[1]/nz-form-control/div/span/app-region-branch/div/nz-select[2]/div/span/i
+${count_branches}       //div[contains(@class, "ant-select-dropdown")]/descendant::ul/li
+
+
+${open_calender_adhoc}      //app-assign-template/div/form/span[1]/nz-form-item[2]/nz-form-control/div/span/div/nz-range-picker/nz-picker/span/span
 ${click_datepicker_adhoc}     //span[@class='ant-calendar-picker-input ant-input ng-star-inserted']
 ${click_left_month_datepicker}     //date-range-popup/div/div/div/div/div[1]/div/inner-popup/calendar-header/div/div/span/a[@title='Choose a month']
 ${year_datepicker}      //div[@class='ant-calendar-range-part ant-calendar-range-left ng-star-inserted']//div//inner-popup[@class='ng-star-inserted']//calendar-header//div[@class='ant-calendar-header']//div//a[@title='Choose a year'][normalize='2021']
+
+
 
 ${click_upto_month_datepicker}  //div[@id="cdk-overlay-4"]/div/date-range-popup/div/div/div/div/div[3]/div/inner-popup/calendar-header/div/div/span/a[1]
 
 ${year_upto_datepicker}     //div[@class='ant-calendar-range-part ant-calendar-range-right ng-star-inserted']//div//inner-popup[@class='ng-star-inserted']//calendar-header//div[@class='ant-calendar-header']//div//a[@title='Choose a year']
 
+
+${close_adhoc_button}   //button[@class='ant-btn ng-star-inserted ant-btn-default']
+
+${click_reset_button}   //app-assign-template/div/form/span[1]/nz-form-item[3]/button[2]
+${click_save_Adhoc_button}  //app-assign-template/div/form/span[1]/nz-form-item[3]/button[1]
+${cancel_button_Adhoc}  //div[@class='ant-popover-buttons']/button[1]
+${ok_Adhoc_button}  //div[@class='ant-popover-buttons']/button[2]
+
+${notify}   //div[@class='ant-message-notice-content']
 *** Keywords ***
 
 
@@ -64,10 +82,10 @@ select region on adhoc
 select branch on adhoc except one
     [Arguments]    ${Branch}
     # select branch
-    wait until element is visible    //app-assign-template/div/form/span[1]/nz-form-item[1]/nz-form-control/div/span/app-region-branch/div/nz-select[2]/div/span/i
+    wait until element is visible    ${dropdown_branch}
     sleep    4s
-    click element    //app-assign-template/div/form/span[1]/nz-form-item[1]/nz-form-control/div/span/app-region-branch/div/nz-select[2]/div/span/i
-    ${length}=    get element count    //div[contains(@class, "ant-select-dropdown")]/descendant::ul/li
+    click element    ${dropdown_branch}
+        ${length}=    get element count    ${count_branches}
     log to console      length=${length}
     FOR    ${index}    IN RANGE   4    ${length}+1
         wait until element is visible    //div[contains(@class, "ant-select-dropdown")]/descendant::ul/li[${index}]
@@ -80,7 +98,7 @@ select branch on adhoc except one
     click element    ${background_click}
 
 open calendar adhoc
-    click element    //app-assign-template/div/form/span[1]/nz-form-item[2]/nz-form-control/div/span/div/nz-range-picker/nz-picker/span/span
+    click element    ${open_calender_adhoc}
 year click
    [Arguments]    ${containerClass}
     click element       //div[contains(@class, "${containerClass}")]/descendant::a[@title='Choose a year'][normalize-space()='2021']
@@ -144,26 +162,26 @@ click day
     click element        //div[contains(@class, "${containerClass}")]//descendant::div[@class='ant-calendar-date ng-star-inserted'][normalize-space()='${day}']
 
 Click Adhoc reset button
-    click button    //app-assign-template/div/form/span[1]/nz-form-item[3]/button[2]
+    click button    ${click_reset_button}
 
 Click Adhoc save button
-    ${count}=   get element count    //app-assign-template/div/form/span[1]/nz-form-item[3]/button[1]
-    RUN KEYWORD IF      ${count}>0      click button    //app-assign-template/div/form/span[1]/nz-form-item[3]/button[1]
+    ${count}=   get element count    ${click_save_Adhoc_button}
+    RUN KEYWORD IF      ${count}>0      click button    ${click_save_Adhoc_button}
     ...   ELSE  Click Close Adhoc button
     sleep    1s
 
 Click Assign Adhoc Cancel button
-    click element   //div[@class='ant-popover-buttons']/button[1]
+    click element   ${cancel_button_Adhoc}
     sleep    1s
 
 Click Assign Adhoc Ok button
-    wait until element is visible    //div[@class='ant-popover-buttons']/button[2]
-    click element    //div[@class='ant-popover-buttons']/button[2]
-    wait until element is visible      //div[@class='ant-message-notice-content']
+    wait until element is visible    ${ok_Adhoc_button}
+    click element    ${ok_Adhoc_button}
+    wait until element is not visible      ${notify}
     sleep    1s
 
 Click Close Adhoc button
-    click element    //button[@class='ant-btn ng-star-inserted ant-btn-default']
+    click element    ${close_adhoc_button}
     sleep    1s
 
 open category adhoc side dropdown

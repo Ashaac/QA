@@ -18,12 +18,12 @@ Input name and value
 click add items in guidelines
     run keyword and continue on failure    click add items in guidelines
 
-click close guidelines button
-    run keyword and continue on failure    click close guidelines button
-
+#click close guidelines button
+#    run keyword and continue on failure    click close guidelines button
+#
 #    run keyword and continue on failure    Click Budget
 
-#click save guidelines button
-#    run keyword and continue on failure    click save guidelines button
-#    run keyword and continue on failure    Click Budget
+click save guidelines button
+    run keyword and continue on failure    click save guidelines button
+    run keyword and continue on failure    Click Budget
 

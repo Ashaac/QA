@@ -10,12 +10,18 @@ Resource        ../databases/capexdb.robot
 
 *** Variables ***
 ${base_url}     https://10.13.189.56:8443/budget
-${cookies}              JSESSIONID=7F4CED6DE8F4AB08ABA085932EDF4478
+#${cookies}              JSESSIONID=FFEAB896F77FB64B802A6CA0AD195CD3
 ${DBName}       budgetdb
 ${DBUser}       application
 ${DBPass}       Application@123
 ${DBHost}       10.13.189.56
 ${DBPort}       3306
+
+#${cookies}=    get cookies
+##        set global variable    ${cookies}   binaacd
+#set global variable   ${cookies}    ${cookies}
+#       # log to console    ${cookies}
+
 
 
 *** Keywords ***
@@ -23,12 +29,20 @@ ${DBPort}       3306
 Connection to Db
     Connect to Database     pymysql  ${DBName}  ${DBUser}  ${DBpass}    ${DBHost}  ${DBPort}
 
+#Compare capex Land data
+#    create session    sessionstest     ${base_url}    verify=FALSE
+#    &{headers}=  Create Dictionary      Cookie=JSESSIONID=FFEAB896F77FB64B802A6CA0AD195CD3
+#    ${response}=    get request    sessionstest    /api/budgets/budgetbyBranch/999/1   data=None    headers=${headers}
+#    ${responseJSON}=    to json  ${response.text}
+#    [Return]    ${responseJSON}
+
 Compare capex Land data
     create session    sessionstest     ${base_url}    verify=FALSE
-    &{headers}=  Create Dictionary      Cookie=JSESSIONID=7F4CED6DE8F4AB08ABA085932EDF4478
+    &{headers}=  Create Dictionary      Cookie=${cookies}
     ${response}=    get request    sessionstest    /api/budgets/budgetbyBranch/999/1   data=None    headers=${headers}
     ${responseJSON}=    to json  ${response.text}
     [Return]    ${responseJSON}
+
 
 ##    &{headers}=  Create Dictionary      Cookie=${cookies}
 Compare capex Land month1
